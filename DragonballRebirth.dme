@@ -466,6 +466,7 @@
 #include "_Reworks\race_rework\saiyan\ascensions.dm"
 #include "_Reworks\race_rework\saiyan\race.dm"
 #include "_Reworks\race_rework\saiyan\transformations.dm"
+#include "_Reworks\race_rework\saiyan\transformations_hellspawn.dm"
 #include "_Reworks\race_rework\shinjin\ascensions.dm"
 #include "_Reworks\race_rework\shinjin\race.dm"
 #include "_Reworks\race_rework\yokai\ascensions.dm"

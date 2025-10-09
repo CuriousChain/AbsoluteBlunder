@@ -161,6 +161,8 @@ mob/proc/CanTransform()
 	return 1
 
 mob/proc/CanRevert()
+	if(src.HellspawnBerserk&&src.Energy>=10)
+		return 0
 	if(src.CyberCancel&&!isRace(ANDROID))
 		return 0
 	if(src.HasNoRevert())

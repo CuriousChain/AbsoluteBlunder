@@ -1091,6 +1091,12 @@ mob/Admin3/verb
 		if(M.client)
 			var/blah=input("Unlock to what form?") as num | null
 			if(!blah) return
+	/*		if(isRace(SAIYAN) && blah == 1 && M.oozaru_type=="Demonic")
+				for(var/transformation/saiyan/hellspawn/hellspawn_super_saiyan/ssj in M.race.transformations)
+					race.transformations += ssj
+			if(isRace(SAIYAN) && blah == 2 && M.oozaru_type=="Demonic")
+				for(var/transformation/saiyan/hellspawn/hellspawn_super_saiyan_2/ssj2 in M.race.transformations)
+					race.transformations += ssj2*/
 			if(isRace(SAIYAN) && blah == 4)
 				var/godor4 = input("SSJ God or SSJ4?") in list("SSJ God", "SSJ4")
 				if(godor4 == "SSJ4")

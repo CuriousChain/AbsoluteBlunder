@@ -170,7 +170,7 @@ mob/Players/verb
 				src<<A.desc
 		else if(ismob(A))
 			usr<<"This is: [A]"
-			
+
 			var/mob/person = A
 			if(client.getPref("seePronouns"))
 				usr<<person.information.getInformation(A, TRUE)
@@ -185,7 +185,7 @@ mob/Players/verb
 						profileHTML = person.ReturnProfile(1)
 			if(profileHTML == "<html>")
 				profileHTML += person.Profile
-			
+
 			profileHTML += "</html>"
 
 			usr << browse(profileHTML, "window=[A];size=900x650")
@@ -807,6 +807,10 @@ mob/Players/verb
 		if(usr.WoundIntent)
 			usr.WoundIntent=0
 			src.OMessage(10, "<font color='grey'>[src] will no longer fight with intent to injure.</font>", "[src]([src.key]) turned injury intent off.")
+			if(src.HellspawnBerserk)
+				src.OMessage(10, "<font color='grey'>But that <b>thing</b> using their body will not stand down so easily.</font>", "[src]([src.key]) toggled lethal on.")
+				src.WoundIntent=1
+				return
 		else
 			usr.WoundIntent=1
 			src.OMessage(10, "<font color='red'>[src] will now fight with intent to injure!!</font>", "[src]([src.key]) turned injury intent on.")
@@ -818,6 +822,9 @@ mob/Players/verb
 		if(src.Lethal)
 			src.Lethal=0
 			src.OMessage(10, "<font color='grey'>[src] will no longer deal lethal damage!!</font>", "[src]([src.key]) toggled lethal off.")
+			if(src.HellspawnBerserk)
+				src.OMessage(10, "<font color='grey'>But that <b>thing</b> using their body will not stand down so easily.</font>", "[src]([src.key]) toggled lethal on.")
+				src.Lethal=20
 			return
 		if(!src.Lethal)
 			src.OMessage(10, "<font color='red'>[src] will now deal lethal damage!!</font>", "[src]([src.key]) toggled lethal on.")

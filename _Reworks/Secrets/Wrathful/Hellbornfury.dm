@@ -110,3 +110,27 @@ scaling with potential as well
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Three)
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Four)
 	p.oozaru_type="Demonic"
+	for(var/transformation/saiyan/ssj in p.race.transformations)
+		if(istype(ssj, /transformation/saiyan/super_saiyan))
+			p.race.transformations -= ssj
+			del ssj
+	for(var/transformation/saiyan/ssj2 in p.race.transformations)
+		if(istype(ssj2, /transformation/saiyan/super_saiyan_2))
+			p.race.transformations -= ssj2
+			del ssj2
+	for(var/transformation/saiyan/ssj3 in p.race.transformations)
+		if(istype(ssj3, /transformation/saiyan/super_saiyan_3))
+			p.race.transformations -= ssj3
+			del ssj3
+	for(var/transformation/saiyan/ssj4 in p.race.transformations)
+		if(istype(ssj4, /transformation/saiyan/super_saiyan_4))
+			p.race.transformations -= ssj4
+			del ssj4
+	for(var/transformation/saiyan/ssjg in p.race.transformations)
+		if(istype(ssjg, /transformation/saiyan/super_saiyan_god))
+			p.race.transformations -= ssjg
+			del ssjg
+	for(var/transformation/saiyan/ssjb in p.race.transformations)
+		if(istype(ssjb, /transformation/saiyan/super_saiyan_blue))
+			p.race.transformations -= ssjb
+			del ssjb

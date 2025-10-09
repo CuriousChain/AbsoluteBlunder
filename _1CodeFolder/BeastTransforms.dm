@@ -83,7 +83,7 @@
 				OffMult = 1.4
 		if(p.Potential > OOZARU_POTENTIAL_TRANS)
 			passives["Transformation Power"] = p.AscensionsAcquired
-		if(length(p.race.transformations) >= 4 && p.race.transformations[4].type == /transformation/saiyan/super_saiyan_4 && p.transUnlocked >= 4)
+		if(length(p.race.transformations) >= 4 && p.race.transformations[4].type == /transformation/saiyan/super_saiyan_4 && p.transUnlocked >= 4||length(p.race.transformations) >= 2 && p.race.transformations[2].type == /transformation/saiyan/hellspawn_super_saiyan_2 && p.transUnlocked >= 2)
 			IconTransform = 'SSJOozaru.dmi'
 			passives["Transformation Power"] = clamp(p.AscensionsAcquired * 5, 1, 40)
 			passives["Flow"] = 4
@@ -105,10 +105,9 @@
 	Trigger(var/mob/User, Override=0)
 		. = ..()
 		if(!User.BuffOn(src))
-			if((length(User.race.transformations) >= 4 && User.race.transformations[4].type == /transformation/saiyan/super_saiyan_4 && User.transUnlocked >= 4) && User.CanTransform() && !User.transActive)
+			if((length(User.race.transformations) >= 4 && User.race.transformations[4].type == /transformation/saiyan/super_saiyan_4 && User.transUnlocked >= 4) && User.CanTransform() && !User.transActive&& User.oozaru_type!="Demonic")
 				User.transActive = 3
 				User.race.transformations[4].transform(User, TRUE)
-
 	verb/Tail_Toggle()
 		set category = "Other"
 		if(usr.Tail)

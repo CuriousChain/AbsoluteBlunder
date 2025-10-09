@@ -121,6 +121,22 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.OMessage(15,"[src] is knocked out by [text]!","<font color=red>[src]([src.key]) is knocked out by [text]")
 	if(src.AwakeningSkillUsed)
 		src.AwakeningSkillUsed=0
+	if(src.oozaru_type=="Demonic" && src.TotalInjury>=50&&prob(10+(src.TotalInjury-50))&&src.transUnlocked<1)
+		src.OMessage(15,"...you thought it was over? You thought you had hope?","<font color=red>[src]([src.key]) awakens.")
+		src.KO=0
+		src.Health=1
+		src.TotalInjury=50
+		src.VaizardHealth+=30
+		src.OMessage(15,"...you thought you were fighting something you could understand?","<font color=red>[src]([src.key]) presses further.")
+		src.race.transformations[1].transform(src, TRUE)
+		src.OMessage(15,"<b>HOW INTERESTING THAT YOU CONTINUE TO MISUNDERSTAND WHAT'S AT STAKE HERE.</b>","<font color=red>[src]([src.key]) heralds the end..")
+		src.HellspawnBerserk=1
+		src.Lethal=1
+		return
+	if(src.HellspawnBerserk)
+		src.HellspawnBerserk=0
+		src.TotalInjury=85
+		MortallyWounded+=1
 	if(src.GatesActive==8 && src.Gate8Getups<2)
 		src.KO=0
 		src.OMessage(15,"...but [src]'s youth is burning too bright to be stopped!","<font color=red>[src]([src.key]) remains standing in their celebration of youth!")
