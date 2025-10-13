@@ -11,7 +11,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
 	PowerMult=1.25
 	StrMult=1.5
 	SpdMult=1.5
-	RecovMult=1.5
+	RecovMult=1.25
 	Cooldown = 1
 	passives = list("Instinct" = 1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
@@ -23,6 +23,14 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
 	RecovMult=1.75
 	Cooldown = 1
 	passives = list("FluidForm" = 1)
+//t2 path buffs. all one of them
+obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dont_Stop_Me_Now //first act
+	StrMult=1.15
+	EndMult = 1.15
+	ForMult=1.15
+	SpdMult=1.15
+	Cooldown = 1
+	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
 //t3 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Shining_Star
 	AlwaysOn=1
@@ -36,13 +44,28 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Unwavering_Soul
 	EndMult = 1.5
 	Cooldown = 1
 	passives = list("BioArmor" = 1, "Unstoppable" =1)
-//t4 path buffs
+
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Axe_of_Justice
 	AlwaysOn=1
 	EndMult = 1.25
 	ForMult=1.5
 	Cooldown = 1
 	passives = list("Neverending Hope" = 1, "Unstoppable" =1)
+obj/Skills/Buffs/SlotlessBuffs/Autonomous/We_Are_The_Champions //second act
+	StrMult=1.1
+	EndMult = 1.1
+	ForMult=1.5
+	SpdMult=1.15
+	Cooldown = 1
+	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
+obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience //second act
+	StrMult=1.1
+	EndMult = 1.1
+	ForMult=1.5
+	SpdMult=1.15
+	Cooldown = 1
+	passives = list("BuffMastery" = 1,"Pursuer" =2, "Godspeed"=2)
+//t4 path buffs
 obj/Skills/AutoHit
 	var/IsSnowgrave
 	var/HahaWhoops
@@ -108,10 +131,40 @@ obj/Skills/AutoHit
 			DamageMult=RandomMult
 			usr.Activate(src)
 			usr.TriggerAwakeningSkill(ActNumber)
+	Unleash
+		ManaCost=75
+		StrOffense=0
+		ForOffense=1
+		HolyMod=40
+		DamageMult=3
+		Area="Circle"
+		Distance=3
+		TurfErupt=2
+		TurfEruptOffset=3
+//		Slow=1
+//		WindUp=1
+		WindupIcon='Ripple Radiance.dmi'
+		WindupIconUnder=1
+		WindupIconX=-32
+		WindupIconY=-32
+		WindupIconSize=1.3
+		Divide=1
+		PullIn=25
+		WindupMessage="glows with a certain power..."
+		ActiveMessage="unleashes a blinding flash of holy light!"
+		HitSparkIcon='BLANK.dmi'
+		HitSparkX=0
+		HitSparkY=0
+		verb/Unleah()
+			set category="Skills"
+			usr.Activate(src)
 mob/proc/TriggerAwakeningSkill(ActNumber)
-	if(ActNumber==1)
+	if(ActNumber>=1)
 		src<< "act 1 placeholder msg lol"
 		src.AwakeningSkillUsed=1
+	if(ActNumber>=2)
+		src<< "act 2 placeholder msg lol"
+		src.AwakeningSkillUsed=2
 obj/Skills
 	var/AwakeningSkill
 	var/ActNumber
@@ -284,6 +337,20 @@ obj/Skills/Projectile
 			set category="Skills"
 			set name="Devilsbuster"
 			usr.UseProjectile(src)
+	Beams
+		TasteTheRainbow //Nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
+			SignatureTechnique=1
+			AdaptRate=1
+			DamageMult=16
+			Immediate=1
+			Dodgeable=0
+			IconLock='carefully.dmi'
+			Cooldown=150
+			EnergyCost=5
+			Instinct=1
+			verb/Taste_The_Rainbow()
+				set category="Skills"
+				usr.UseProjectile(src)
 obj/Skills/Buffs
 	Rebirth
 		RemoveSOUL
