@@ -1,28 +1,31 @@
 //t1 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Heart
 	AlwaysOn=1
-	PowerMult=1.25
+	PowerMult=1.15
 	StrMult=1.15
-	EndMult = 1.75
+	ForMult = 1.15
+	EndMult = 1.35
 	Cooldown = 1
 	passives = list("Tenacity" = 1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
 	AlwaysOn=1
-	PowerMult=1.25
-	StrMult=1.5
-	SpdMult=1.5
+	PowerMult=1.15
+	StrMult=1.25
+	ForMult = 1.15
+	SpdMult=1.35
 	RecovMult=1.25
 	Cooldown = 1
 	passives = list("Instinct" = 1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
 	AlwaysOn=1
-	PowerMult=1.15
-	StrMult=1.15
-	EndMult = 1.15
+	PowerMult=1.1
+	StrMult=1.1
+	EndMult = 1.1
+	ForMult = 1.1
 	SpdMult=1.15
-	RecovMult=1.75
+	RecovMult=1.5
 	Cooldown = 1
-	passives = list("FluidForm" = 1)
+	passives = list("FluidForm" = 1) //this is a cat joke.
 //t2 path buffs. all one of them
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dont_Stop_Me_Now //first act
 	PowerMult=1.15
@@ -36,17 +39,19 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dont_Stop_Me_Now //first act
 //HE'S GOTTA BE STRONG AND HE'S GOTTA BE FAST AND HE'S GOTTA BE FRESH FROM THE NIGHT
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Heart
 	ActiveMessage="awakens a heroic heart!"
-	PowerMult=1.25
+	PowerMult=1.15
 	StrMult=1.15
-	EndMult = 1.75
+	ForMult = 1.15
+	EndMult = 1.5
 	Cooldown = 1
 	TimerLimit = 30
 	passives = list("Tenacity" = 1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul
 	ActiveMessage="awakens a heroic soul!"
-	PowerMult=1.25
-	StrMult=1.5
-	SpdMult=1.5
+	PowerMult=1.15
+	StrMult=1.25
+	ForMult = 1.15
+	SpdMult=1.35
 	RecovMult=1.25
 	Cooldown = 1
 	TimerLimit = 30
@@ -62,8 +67,15 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Unwavering_Soul
 	AlwaysOn=1
 	StrMult=1.1
 	EndMult = 1.5
+	BioArmor=50
 	Cooldown = 1
-	passives = list("BioArmor" = 1, "Unstoppable" =1)
+	passives = list("Unstoppable" =1)
+obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Of_Chaos
+	AlwaysOn=1
+	AngerPoint=65
+	RecovMult=1.75
+	Cooldown = 1
+	passives = list("FluidForm" = 1, "Controlled Chaos" = 1)
 
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Axe_of_Justice
 	AlwaysOn=1
@@ -87,6 +99,14 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience //second act
 	HealthDrain = 0.05
 	passives = list("BuffMastery" = 1,"Pursuer" =2, "Godspeed"=2)
 //t4 path buffs
+obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Show_Must_Go_On //third act
+	StrMult=1.25
+	EndMult = 1.25
+	ForMult=1.25
+	SpdMult=1.25
+	Cooldown = 1
+	AwakeningRequired=1
+	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
 //debuffs
 /obj/Skills/Buffs/SlotlessBuffs/Autonomous/Rebirth/Dissociation
 	ActiveMessage="doesn't appear to be all there."
@@ -100,6 +120,38 @@ obj/Skills/AutoHit
 	var/IsSnowgrave
 	var/HahaWhoops
 	var/RandomMult
+	MakeItCount
+		Area="Strike"
+		AwakeningSkill=1
+		ActNumber=3
+		NeedsHealth=50
+		Rush=10
+		SpecialAttack=1
+		CanBeDodged=0
+		CanBeBlocked=1
+		DamageMult=20
+		Stunner=3
+		Knockback=0
+		WindUp=1
+		WindupIcon='Chidori.dmi'
+		WindupMessage="vibrates their hand quickly enough to create blue static electricity, all of which focusing into a tiny point within their palm."
+		ActiveMessage="bets their future on this one attack!"
+		Icon='Chidori.dmi'
+		HitSparkIcon='Hit Effect Vampire.dmi'
+		HitSparkX=-32
+		HitSparkY=-32
+		HitSparkSize=1
+		ControlledRush=1
+		Instinct=1
+		verb/Make_It_Count()
+			set category="Skills"
+			set name="Make It Count (Act 3)"
+			if(world.realtime < src.RebirthLastUse+(600*60*24*7))
+				usr << "You can only use this technique once every week."
+				return
+			usr.Activate(src)
+			src.RebirthLastUse=world.realtime
+			usr.TriggerAwakeningSkill(ActNumber)
 	Snowgrave
 		ElementalClass="Water"
 		ForOffense=1.5
@@ -224,8 +276,12 @@ obj/Skills/AutoHit
 		HitSparkIcon='BLANK.dmi'
 		HitSparkX=0
 		HitSparkY=0
-		verb/Unleash()
+		verb/Banish()
 			set category="Skills"
+			if(world.realtime < src.RebirthLastUse+(600*60*168))
+				usr << "You can only use this technique once every week."
+				return
+			src.RebirthLastUse=world.realtime
 			usr.Activate(src)
 	Burning_Up_Everything
 		SignatureTechnique=1
@@ -547,6 +603,36 @@ obj/Skills/Projectile
 			verb/Taste_The_Rainbow()
 				set category="Skills"
 				usr.UseProjectile(src)
+	Zone_Attacks
+		Final_Chaos
+			Speed = 0.25
+			Distance=20
+			Blasts=15
+			Charge=1
+			DamageMult=1.3
+			IconLock='Nyan2.dmi'
+			Instinct=1
+			AccMult=2
+			Homing=3
+			Explode=1
+			ZoneAttackX=3
+			ZoneAttackY=3
+			Hover=7
+			ActNumber=3
+			AwakeningSkill=1
+			Variation=0
+			verb/Final_Chaos()
+				set category="Skills"
+				set name="Final Chaos (Act 3)"
+				if(world.realtime < src.RebirthLastUse+(600*60*168))
+					src << "You can only use this technique once every week."
+					return
+				if(usr.Health>25)
+					usr<<"Can't use yet!"
+					return
+				src.RebirthLastUse=world.realtime
+				usr.TriggerAwakeningSkill(ActNumber)
+				usr.UseProjectile(src)
 obj/Skills/Buffs
 	Rebirth
 		RemoveSOUL
@@ -573,9 +659,10 @@ obj/Skills/Buffs
 			SwordY=-32
 			SwordClass="Small"
 			PowerMult=2
+			StrMult=1.3
 			Cooldown = 1
 			SwordAscension=3
-			OffMult=0.66
+			OffMult=0.5
 			passives = list("HolyMod" = 3)
 			ActiveMessage="pulls out a small shard of glass that seems barely usable as a weapon."
 			OffMessage="puts the black shard away."
@@ -591,7 +678,9 @@ obj/Skills/Buffs
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Medium"
-			PowerMult=1.15
+			PowerMult=1.25
+			ForMult=1.15
+			StrMult=1.3
 			Cooldown = 1
 			ActiveMessage="draws forth a skull emblazoned scythe-ax!"
 			OffMessage="pockets the weap-... did it just smile at you?!"
@@ -609,6 +698,7 @@ obj/Skills/Buffs
 			SwordY=-32
 			SwordClass="Heavy"
 			PowerMult=1.5
+			StrMult=1.45
 			SwordAscension=3
 			Cooldown = 1
 			ActiveMessage="faces fate with the Axe of Justice."
@@ -625,6 +715,7 @@ obj/Skills/Buffs
 			SwordY=-32
 			SwordClass="Medium"
 			PowerMult=1.25
+			StrMult=1.25
 			Cooldown = 1
 			ActiveMessage="draws forth a black and orange sword!"
 			OffMessage="sheathes their spooky blade!"
