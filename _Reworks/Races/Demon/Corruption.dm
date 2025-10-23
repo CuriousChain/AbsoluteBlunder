@@ -5,8 +5,8 @@
 
 /mob/proc/gainCorruption(n)
     if(!isRace(DEMON))
-    	if(!ArsGoetiaOwner)
-		    return
+        if(!ArsGoetiaOwner)
+            return
     if(Corruption + n < MaxCorruption)
         Corruption+=n
     if(Corruption < MinCorruption)

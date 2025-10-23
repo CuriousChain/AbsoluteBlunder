@@ -81,7 +81,6 @@ obj/Skills/Grapple
 	Instinct_Reversal//grapple
 		Reversal = 1
 		OneAndDone = 1
-		HarderTheyFall = 4
 		DamageMult = 4
 		StrRate = 1
 		EndRate = 0.9

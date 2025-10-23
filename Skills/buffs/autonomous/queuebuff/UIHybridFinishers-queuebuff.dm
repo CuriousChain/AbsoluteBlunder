@@ -3,7 +3,6 @@
 	Awareness_Resonance//sword buff
 		IconLock = 'SweatDrop.dmi'
 		IconApart = 1
-		StyleNeeded = "Sword of Awareness"
 		StrMult = 1.15
 		OffMult = 1.15
 		DefMult = 1.1
@@ -15,7 +14,6 @@
 	Flow_State//grapple buff
 		IconLock = 'SweatDrop.dmi'
 		IconApart = 1
-		StyleNeeded = "Instinctual Grappling"
 		StrMult = 1.2
 		EndMult = 1.2
 		DefMult = 1.15
@@ -27,7 +25,6 @@
 	Prismatic_Trance//mystic buff
 		IconLock = 'SweatDrop.dmi'
 		IconApart = 1
-		StyleNeeded = "Aetherial Spark"
 		ForMult = 1.25
 		OffMult = 1.2
 		SpdMult = 1.15
@@ -39,7 +36,6 @@
 	Stillness_of_Motion//martial buff
 		IconLock = 'SweatDrop.dmi'
 		IconApart = 1
-		StyleNeeded = "Instinctive Palm"
 		StrMult = 1.2
 		SpdMult = 1.15
 		DefMult = 1.15

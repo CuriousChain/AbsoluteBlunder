@@ -60,7 +60,9 @@
 		BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Stillness_of_Motion"
 		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Disrupted_Flow"
 		HitMessage = "meets their foe’s strike with perfect timing, a single palm erupting repeatedly with instinctive precision!"
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~ Final Tier Finishers Beyond This Point!
+
 	Sword_of_No_Thought
 		name = "Sword of No Thought"
 		Warp = 4
@@ -87,7 +89,6 @@
 		InstantStrikes = 4
 		Crushing = 30
 		DamageMult = 5.25
-		UnarmedOnly = 1
 		GrabTrigger = "/obj/Skills/Grapple/Instinct_Reversal"
 		BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Flow_State"
 		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Thrown_Off_Balance"
