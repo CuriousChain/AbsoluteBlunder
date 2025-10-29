@@ -39,7 +39,7 @@
 				return 0
 		ActiveMessage = "has resolved their contradictory nature! Darkness and light, once wandering through creation, gather together and open the door to  truth! <b>Become as one, [usr.name] and [usr.TrueName]!</b></i>"
 		src.Trigger(usr)
-/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles //weaker versions for Makaioshins and Celestials
+/*/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles //weaker versions for Makaioshins and Celestials
 	Selfless_State
 		Copyable=0
 		passives = list("Flow" = 1, "Deflection" = 1, "Soft Style" = 1)
@@ -86,4 +86,4 @@
 		StyleActive="Perfected Ultra Instinct"
 		verb/Perfected_Ultra_Instinct()
 			set hidden=1
-			src.Trigger(usr)
+			src.Trigger(usr)*/

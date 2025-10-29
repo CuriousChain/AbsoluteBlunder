@@ -23,9 +23,48 @@ mob/proc/GrantGuardianItem(path)
 		I = new path
 		I.Move(src)
 		I.AlignEquip(src)
+		I.Owner = src
 		src << "<font color='#bfefff'><b>[I.name]</b> manifests in radiant light!</font>"
 	else
 		I.AlignEquip(src)
+mob/proc/ReclaimGuardianItem(path)
+	if(!path) return
+	if(locate(path) in src.contents)
+		src << "[path] is already in your possession."
+		return
+	var/obj/Items/I
+	for(var/obj/Items/G in world)
+		if(istype(G, path) && G.Owner == src)
+			I = G
+			break
+	if(I)
+		I.Move(src)
+		src << "<font color='#bfefff'><b>[I.name]</b></font> returns to your side in a flash of light!"
+		return
+	I = new path(src)
+	I.Owner = src
+	I.AlignEquip(src)
+	src << "<font color='#bfefff'><b>[I.name]</b></font> rematerializes from the heavens!"
+obj/Skills/Utility/Recall_Armaments
+	verb/Recall_Armaments()
+		set category="Utility"
+		set name = "Recall Armaments"
+		if(usr.Dead && !usr.KeepBody)
+			usr << "You cannot summon divine artifacts while dead."
+			return
+		usr.ReclaimGuardianItem(/obj/Items/Sword/Guardian/Sword_of_the_Saint)
+		if(usr.AscensionsAcquired >= 1)
+			usr.ReclaimGuardianItem(/obj/Items/Wearables/Guardian/Belt_of_Truth)
+		if(usr.AscensionsAcquired >= 2)
+			usr.ReclaimGuardianItem(/obj/Items/Armor/Guardian/Breastplate_of_Righteousness)
+			usr.ReclaimGuardianItem(/obj/Items/Wearables/Guardian/Sandals_of_Peace)
+		if(usr.AscensionsAcquired >= 3)
+			usr.ReclaimGuardianItem(/obj/Items/Wearables/Guardian/Helmet_of_Salvation)
+			usr.ReclaimGuardianItem(/obj/Items/Wearables/Guardian/Shield_of_Faith)
+		if(usr.AscensionsAcquired >= 4)
+			usr.ReclaimGuardianItem(/obj/Items/Sword/Guardian/Sword_of_the_Spirit)
+		OMsg(usr, "[usr] calls their sacred armaments home in a blaze of holy light!")
+
 //no ascensions
 /obj/Items/Sword/Guardian/Sword_of_the_Saint
 	passives = list()
