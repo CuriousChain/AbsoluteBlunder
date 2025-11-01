@@ -38,7 +38,6 @@ race
 							sub_devil_arm_upgrades = round((p.Potential - ASCENSION_TWO_POTENTIAL) / 10) + 1
 							p << "Your secondary devil arm evolves, toggle it on and off to use it"
 		onFinalization(mob/user)
-			..()
 			user.TrueName=input(user, "Your demonic nature has a mind of its own. What name shall you use to call upon it?", "Get True Name") as text
 			user << "The name your demonic half goes by is <b>[user.TrueName]</b>."
 			user.EnhancedSmell = 1
