@@ -368,7 +368,7 @@ mob/Admin3/verb
 				if("Path of a Hero: Rebirth")
 					P.SagaLevel=1
 					P.Saga="Path of a Hero: Rebirth"
-					var/list/Choices=list("Blue", "Red")
+					var/list/Choices=list("Blue", "Red","Rainbow")
 					var/choice
 					var/confirm
 					while(confirm!="Yes")
