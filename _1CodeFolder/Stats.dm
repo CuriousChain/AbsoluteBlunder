@@ -4,6 +4,7 @@ mob/verb/Character_Sheet()
 
 mob/proc/GetAssess()
 	var/PowerDisplay
+	var/RealPower=src.Available_Power()
 	var/IntimDisplay
 	var/BaseDisplay
 	var/GodKiDisplay
@@ -73,6 +74,7 @@ mob/proc/GetAssess()
 	<tr><td>Damage Reduction:</td><td>x[PRed] ([PRed*100]%)</td></tr>
 	<tr><td>God Ki:</td><td>x[GodKiDisplay]</td></tr>
 	<tr><td>Current BP:</td><td>[Commas(PowerDisplay)]</td></tr>
+	<tr><td>Real BP:</td><td>[Commas(RealPower)]</td></tr>
 	<tr><td>Energy:</td><td>[Commas(round(src.EnergyMax))] (1)</td></tr>
 	<tr><td>Buffed Stat/True Stat (Mod)</td></tr>
 	<tr><td>Strength:</td><td> [round(src.GetStr(), 0.01)] ([src.BaseStr()])</td></tr>
@@ -812,6 +814,10 @@ mob/proc/
 		if(passive_handler["Rebel Heart"])
 			var/h = ((missingHealth()/glob.REBELHEARTMOD) * passive_handler["Rebel Heart"])/5
 			Ratio+=h
+		var/IncompleteRatio=1
+		if(passive_handler["Incomplete"])
+			IncompleteRatio=1-(passive_handler["Incomplete"]*0.5)
+			Ratio*=IncompleteRatio
 		Power=Ratio*GetPowerUpRatio()
 
 		if(Power < 1)

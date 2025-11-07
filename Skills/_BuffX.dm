@@ -135,6 +135,7 @@ NEW VARIABLES
 	var/ArmamentGlow
 	var/ArmamentGlowSize
 	var/AwakeningRequired
+	var/GatesNeeded
 
 	var/BleedHit //Makes you deal damage to yourself when you hit.
 	var/ManaLeak //Makes you spend mana when you hit
@@ -940,7 +941,7 @@ NEW VARIABLES
 				source.GatesActive = 0
 			proc/setUpGateVars(mob/p, num)
 
-				if(altered) return
+			/*	if(altered) return
 				SuperDash=0
 				FatigueHeal=0
 				IconLock=null
@@ -958,10 +959,19 @@ NEW VARIABLES
 				"SuperDash" = puBoon ? 1 : 0, "Neo" = num)
 				StrMult = 1.15 + num / glob.GATES_STAT_MULT_DIVISOR
 				EndMult = 1.1 + num / glob.GATES_STAT_MULT_DIVISOR
-				SpdMult = 1.05 + num / glob.GATES_STAT_MULT_DIVISOR
+				SpdMult = 1.05 + num / glob.GATES_STAT_MULT_DIVISOR*/
 				KenWave=clamp(num / 2, 1, 4)
 
-
+				/*	if(4)
+						ActiveMessage = "unleashes the Fourth Gate!"
+					if(5)
+						ActiveMessage = "unleashes the Fifth Gate!"
+					if(6)
+						ActiveMessage = "unleashes the Sixth Gate!"
+					if(7)
+						ActiveMessage = "unleashes the Seventh Gate!"
+					if(8)
+						ActiveMessage = "unleashes the Eighth Gate!"*/
 				if(num >= 5)
 					passives["Kaioken"] = 1 // gates should die what the freak ?
 
@@ -1030,10 +1040,8 @@ NEW VARIABLES
 
 			proc/shutOffEffects(mob/p, level, dontWound = FALSE)
 				p.GatesActive=0
+				var/FreeGates=p.SagaLevel
 
-				var/tax = clamp(0.05 * level, 0.05, 1)
-				if(taxReduction)
-					tax = clamp(0.05 - taxReduction * level, 0.005, 1)
 
 				if(dontWound)
 					return
@@ -1061,32 +1069,19 @@ NEW VARIABLES
 						p.OMessage(10, "[p] has been grieviously wounded!", "[p]([p.key]) has over 80% injury.")
 
 
-				if(level == 7)
-					tax = 0.5
-				if(level == 8)
-					tax  = 0.99
-				switch(level)
-					if(1)
-						p.GatesNerfPerc=20
-						p.GatesNerf=RawMinutes(45)
-					if(2)
-						p.GatesNerfPerc=25
-						p.GatesNerf=RawMinutes(60)
-					if(3)
-						p.GatesNerfPerc=30
-						p.GatesNerf=RawHours(2)
-					if(4)
-						p.GatesNerfPerc=35
-						p.GatesNerf=RawHours(3)
-					if(5)
-						p.GatesNerfPerc=40
-						p.GatesNerf=RawHours(4)
-					if(6)
-						p.GatesNerfPerc=45
-						p.GatesNerf=RawHours(5)
-					if(7)
-						p.GatesNerfPerc=50
-						p.GatesNerf=RawHours(6)
+				var/tax
+				if(level==FreeGates+1)
+					p.GatesNerfPerc=25
+					p.GatesNerf=RawHours(24)
+				else if(level==FreeGates+2)
+					p.GatesNerfPerc=50
+					p.GatesNerf=RawHours(72)
+				tax=(p.GatesNerfPerc/100)
+				if(level<=FreeGates)
+					tax=0
+				if(level==7)
+					tax=0.5
+
 				p.AddStrTax(tax)
 				p.AddEndTax(tax)
 				p.AddSpdTax(tax)

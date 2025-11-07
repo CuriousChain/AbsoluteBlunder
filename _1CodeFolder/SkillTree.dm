@@ -255,7 +255,8 @@ var/list/SkillTree=list(
 	"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ubermensch_Style"=9999,
 					"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Mantis_And_Crane_Style"=9999,
 					"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Long_Fist_Style"=9999,
-					"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Divine_Arts_of_The_Heavenly_Demon"=9999
+					"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Divine_Arts_of_The_Heavenly_Demon"=9999,
+					"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Futae_No_Kiwami"=9999
 					),
 "UnarmedStylesT3"=list(
 	"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Flying_Thunder_God"=9999,
@@ -278,7 +279,8 @@ var/list/SkillTree=list(
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe"=9999,
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing"=9999,
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Phoenix_Eye_Fist"=9999,
-"/obj/Skills/Buffs/NuStyle/SwordStyle/Art_of_Order"=9999
+"/obj/Skills/Buffs/NuStyle/SwordStyle/Art_of_Order"=9999,
+"/obj/Skills/Buffs/NuStyle/SwordStyle/Homura_Dama"=9999
 ),
 "HybridStylesT3"=list(
 

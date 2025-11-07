@@ -38,7 +38,8 @@
 	Wing_Chun_Style
 		SignatureTechnique=1
 		Copyable=0
-		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Fist_of_Khonshu"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Phoenix_Eye_Fist")
+		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Fist_of_Khonshu"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Phoenix_Eye_Fist",\
+		"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Tai_Chi_Style"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Futae_No_Kiwami")
 		StyleSpd=1.15
 		StyleOff=1.15
 		StyleDef=1.15
@@ -51,7 +52,8 @@
 	Tai_Chi_Style
 		SignatureTechnique=1
 		Copyable=0
-		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Wushu_Style"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Long_Fist_Style")
+		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Wushu_Style"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Long_Fist_Style",\
+		"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Wing_Chun_Style"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Futae_No_Kiwami")
 		StyleSpd=0.85
 		StyleEnd=1.3
 		StyleOff=1.15

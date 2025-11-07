@@ -43,4 +43,5 @@ race
 					passives["Blubber"] = 0.25
 				if("Poison")
 					skills = list(/obj/Skills/AutoHit/Dragon_Roar, /obj/Skills/AutoHit/Poison_Gas, /obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dragon_Rage/Melt_Down)
+			passives["Incomplete"] = 0.5
 			..()

@@ -25,7 +25,7 @@ obj
 				AccuracyMult = 1.25
 				Stunner=3
 				Instinct=4
-				HitStep=/obj/Skills/Queue/Reverse_Lotus2
+				HitStep="/obj/Skills/Queue/Reverse_Lotus2"
 				Duration=5
 				Cooldown=180
 				Warp=10
@@ -40,9 +40,9 @@ obj
 				AccuracyMult=1
 				Combo=3
 				KBAdd=3
-				HitStep=/obj/Skills/Queue/Reverse_Lotus3
-				MissStep=/obj/Skills/Queue/Reverse_Lotus3
-				Step=/obj/Skills/Queue/Reverse_Lotus3
+				HitStep="/obj/Skills/Queue/Reverse_Lotus3"
+				MissStep="/obj/Skills/Queue/Reverse_Lotus3"
+				Step="/obj/Skills/Queue/Reverse_Lotus3"
 				Duration=5
 				Quaking=2
 				Warp=10
@@ -71,7 +71,7 @@ obj
 				Instinct=2
 				Combo=20
 				Finisher=1
-				HitStep=/obj/Skills/Queue/GET_DUNKED
+				HitStep="/obj/Skills/Queue/GET_DUNKED"
 				Projectile="/obj/Skills/Projectile/AsaKujaku"
 				ProjectileCount=1
 				Warp=3

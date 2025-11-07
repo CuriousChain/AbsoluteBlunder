@@ -90,7 +90,8 @@
 		AuraX=-8
 		AuraY=-10
 		StyleComboUnlock = list("/obj/Skills/Buffs/NuStyle/MysticStyle/Magma_Walker"= "/obj/Skills/Buffs/NuStyle/MysticStyle/Hellfire",\
-								"/obj/Skills/Buffs/NuStyle/MysticStyle/Ice_Dancing"= "/obj/Skills/Buffs/NuStyle/MysticStyle/Hot_n_Cold")
+								"/obj/Skills/Buffs/NuStyle/MysticStyle/Ice_Dancing"= "/obj/Skills/Buffs/NuStyle/MysticStyle/Hot_n_Cold",\
+								"/obj/Skills/Buffs/NuStyle/SwordStyle/Ulfberht_Style"="/obj/Skills/Buffs/NuStyle/SwordStyle/Homura_Dama")
 		ElementalOffense = "Wind"
 		ElementalDefense = "Fire"
 		ElementalClass = "Fire"

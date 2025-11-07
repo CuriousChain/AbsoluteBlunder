@@ -10,7 +10,7 @@ ascension
 			return d
 		one
 			unlock_potential = ASCENSION_ONE_POTENTIAL
-			passives = list("HellPower" = 0.25, "AbyssMod" = 0.25, "HolyMod" = 0.25, "SpiritPower" = 0.25, , "HellRisen" = 0.25)
+			passives = list("HellPower" = 0.25, "AbyssMod" = 0.25, "HolyMod" = 0.25, "SpiritPower" = 0.25, , "HellRisen" = 0.25, "Incomplete" = -0.25)
 			anger = 0.15
 			intimidation = 50
 			strength = 0.25
@@ -24,7 +24,7 @@ ascension
 
 		two
 			unlock_potential = ASCENSION_TWO_POTENTIAL
-			passives = list("HellPower" = 0.25, "AbyssMod" = 0.75, "HolyMod" = 0.5, "SpiritPower" = 0.25, "HellRisen" = 0.25)
+			passives = list("HellPower" = 0.25, "AbyssMod" = 0.75, "HolyMod" = 0.5, "SpiritPower" = 0.25, "HellRisen" = 0.25, "Incomplete" = -0.25)
 			intimidation = 50
 			strength = 0.25
 			force = 0.5
@@ -45,7 +45,7 @@ ascension
 				owner.Class = "Lightbringer"
 		three
 			unlock_potential = ASCENSION_THREE_POTENTIAL
-			passives = list("HellPower" = 0.25, "AbyssMod" = 1, "HolyMod" = 2, "SpiritPower" = 0.25, "TechniqueMastery" = 1)
+			passives = list("HellPower" = 0.25, "AbyssMod" = 1, "HolyMod" = 2, "SpiritPower" = 0.25, "TechniqueMastery" = 1, "Incomplete" = -0.25)
 			anger = 0.2
 			intimidation = 100
 			strength = 0.25
@@ -54,15 +54,13 @@ ascension
 			recovery = 0.25
 			postAscension(mob/owner)
 				..()
-				if(istype(owner.race, /race/makaioshin))
-					owner.race.power = 3 //Has to be in this proc because it's referencing the race tree. Iff this is not intended let me know and I will revert it ASAP.
 				owner.Class = "Shadowlord"
 				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Ultra_Instinct, owner))
 					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Ultra_Instinct
 					owner.AddSkill(s)
 		four
 			unlock_potential = ASCENSION_FOUR_POTENTIAL
-			passives = list("HellPower" = 0.25, "HolyMod" = 2, "AbyssMod" = 2, " KiControlMastery"=1)
+			passives = list("HellPower" = 0.25, "HolyMod" = 2, "AbyssMod" = 2, " KiControlMastery"=1, "Incomplete" = -0.25)
 			anger = 0.15
 			intimidation = 250
 			strength = 0.25

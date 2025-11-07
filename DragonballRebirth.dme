@@ -509,6 +509,7 @@
 #include "_Reworks\Sagas\Finn\Finn.dm"
 #include "_Reworks\Sagas\Finn\FinnAttacks.dm"
 #include "_Reworks\Sagas\Finn\FinnSword.dm"
+#include "_Reworks\Sagas\Gates\NuGates.dm"
 #include "_Reworks\Sagas\Kamui\Junketsu.dm"
 #include "_Reworks\Sagas\Kamui\kamui.dm"
 #include "_Reworks\Sagas\Kamui\oldbuffs.dm"

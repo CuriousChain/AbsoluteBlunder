@@ -32,7 +32,7 @@
         GrabTrigger="/obj/Skills/Grapple/Ryukoha"
         BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Cruel_Shadow"
         BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Debuff/Death_Mark"
-    // same style 
+    // same style
 
     Jarret_Jarret
         SweepStrike=4
@@ -45,20 +45,32 @@
         KBAdd=0.001
         FollowUp="/obj/Skills/AutoHit/Jarret_Jarret"
         BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Feng_Shui_Engine"
+    Mastery_of_Two_Layers
+        InstantStrikes = 2
+        DamageMult = 1
+        HitMessage=""
+        FollowUp="/obj/Skills/Queue/Finisher/Sanjou_no_Kiwami"
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ushin"
+    Sanjou_no_Kiwami
+        Combo=8
+        DamageMult = 1.5
+        HitMessage="unleashes a flurry of concurrent strikes, each blow hitting with the force of two!"
+        BuffSelf=0
+        HitSparkIcon = 'Slash_Multi.dmi'
 
     // end unarmed
 
 
     King_of_Hell
-        
+
         SpeedStrike = 2
         SweepStrike = 2
         Quaking=5
         PushOut=1
         DamageMult = 2
-        FollowUp=/obj/Skills/Queue/Finisher/Kokujo_O_Tatsumaki
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Firefox_Style
-        BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Shredded
+        FollowUp="/obj/Skills/Queue/Finisher/Kokujo_O_Tatsumaki"
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Firefox_Style"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Shredded"
         HitMessage = "breaks off into a relentless pursuit!"
     Kokujo_O_Tatsumaki
         Combo=25
@@ -66,27 +78,35 @@
         HitMessage="rips through their opponent with countless slashes!"
         BuffSelf=0
         HitSparkIcon = 'Slash_Multi.dmi'
-
+    Gatotsu_Rokujin
+        SpeedStrike=5
+        DamageMult=1
+        InstantStrikes=6
+        PushOut=1
+        Rapid=1
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Shinsengumi_Hitokiri"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Shredded"
+        HitMessage = "dashes forward, unleashing six strikes in one!"
     Dragon_Slayer
         HarderTheyFall=4
         Stunner=4
         KBMult = 0.0001
-        FollowUp=/obj/Skills/AutoHit/Divide_Effect
+        FollowUp="/obj/Skills/AutoHit/Divide_Effect"
         DamageMult = 3
         Decider = 4
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Indomitable_Will
-        BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Fimbulwinter
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Indomitable_Will"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Fimbulwinter"
         HitMessage = "sends a massive cleaving sword strike forward!"
     Hunt
         Dominator = 1
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Righteous_Crusade
-        BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Staked
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Righteous_Crusade"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Staked"
         DamageMult = 3
         Stunner = 2
         KBMult = 3
         HitMessage = "prepares the hunt by pinning their prey to the ground!"
-        FollowUp=/obj/Skills/AutoHit/Pinning_Stake
-        
+        FollowUp="/obj/Skills/AutoHit/Pinning_Stake"
+
 
     Divine_Finisher
         name = "Heavenly Demon's Radiant Divine Palm that Shatters the Nine Heavens and Illuminates the Eternal Night"
@@ -109,16 +129,16 @@
         Crippling=15
         Scorching=15
         DamageMult=3
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ifrit_Jambe
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ifrit_Jambe"
         HitMessage="springs into a handstand, launching a destructive kick from below!"
-        FollowUp=/obj/Skills/AutoHit/Beef_Burst
+        FollowUp="/obj/Skills/AutoHit/Beef_Burst"
 
 
 
     Icy_Glare
         Stunner=8
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Time_Skip
-        BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Time_Freeze
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Time_Skip"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Time_Freeze"
         DamageMult = 3
         Explosive = 1
         KBMult = 0.0001
@@ -130,17 +150,17 @@
         Quaking=5
         PushOut=1
         DamageMult = 2
-        FollowUp=/obj/Skills/Queue/Finisher/Wuju
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Alpha_Strike
+        FollowUp="/obj/Skills/Queue/Finisher/Wuju"
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Alpha_Strike"
         HitMessage = "breaks off into a relentless pursuit!"
     Blood_Rite
         Crippling=100
         Quaking=2
         PushOut=1
         DamageMult=1
-        FollowUp=/obj/Skills/AutoHit/Rupture
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Bloodrage
-        BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Silence
+        FollowUp="/obj/Skills/AutoHit/Rupture"
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Bloodrage"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Silence"
 
 
 
@@ -151,7 +171,7 @@
         HitSparkIcon = 'Slash_Multi.dmi'
 
     Psycho_Barrage
-        BuffSelf=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Reversal_Mastery
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Reversal_Mastery"
 
     // end hybird?
 
@@ -159,26 +179,26 @@
         FollowUp = "/obj/Skills/AutoHit/Dantes_Inferno"
         BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/In_the_Details"
         DamageMult = 1.1
-        AdaptRate = 1 
+        AdaptRate = 1
     Mega_Arm
         FollowUp = "/obj/Skills/Projectile/Super_Mega_Buster"
         BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/X_Buster"
-        BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Plasma_Burned" // pure red 
+        BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Plasma_Burned" // pure red
         DamageMult = 1.1
-        AdaptRate = 1 
+        AdaptRate = 1
     Frostfist
         Freezing = 255
         DamageMult = 2
         FollowUp = "/obj/Skills/AutoHit/Ice_Ply"
         BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Frozen_Summit"
-        AdaptRate = 1 
+        AdaptRate = 1
     Phosphor
         FollowUp = "/obj/Skills/Projectile/Coldflame_Pale_Blade"
-        BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Cooled_Down" 
+        BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Cooled_Down"
         DamageMult = 1.1
-        AdaptRate = 1 
+        AdaptRate = 1
     Jet_Kindling
         FollowUp = "/obj/Skills/AutoHit/Flashfire_Fist"
-        BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Heated_Up" 
+        BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Heated_Up"
         DamageMult = 1.1
-        AdaptRate = 1 
+        AdaptRate = 1

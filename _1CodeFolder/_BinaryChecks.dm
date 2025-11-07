@@ -818,6 +818,14 @@ mob
 			if(src.GatesActive && src.GatesActive<8)
 				Return+=(4/src.SagaLevel)
 			return Return
+		HasBurnHit()
+			if(passive_handler.Get("BurnHit"))
+				return 1
+			return 0
+		GetBurnHit()
+			var/Return=0
+			Return+=passive_handler.Get("BurnHit")
+			return Return
 		HasEnergyLeak()
 			if(passive_handler.Get("EnergyLeak"))
 				return 1

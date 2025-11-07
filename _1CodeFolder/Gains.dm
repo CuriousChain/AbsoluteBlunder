@@ -245,6 +245,8 @@ var/game_loop/mainLoop = new(0, "newGainLoop")
 	if(Lethal-- <= 0 && Lethal)
 		Lethal = 0
 		OMsg(src, "<font color='grey'>[src] will no longer deal lethal damage.</font color>")
+	if(HellspawnTimer)
+		HellspawnTimer--
 	if(HellspawnTimer-- <= 0 && HellspawnTimer)
 		HellspawnTimer = 0
 		src.passive_handler.Decrease("Cursed Wounds")
@@ -1328,6 +1330,9 @@ mob
 			for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/A in src.Buffs)
 				//Activations
 				if(!A.SlotlessOn)
+					if(src.GatesActive==A.GatesNeeded)
+						A.Trigger(src,Override=1)
+						continue
 
 					if(A.NeedsPassword)
 						if(!A.Password)
@@ -1385,6 +1390,9 @@ mob
 
 				//Deactivations
 				if(A.SlotlessOn)
+					if(A.GatesNeeded>src.GatesActive)
+						A.Trigger(src,Override=1)
+						continue
 					if(A.ABuffNeeded)
 						if(A.ABuffNeeded.len>0)
 							if(!src.ActiveBuff)

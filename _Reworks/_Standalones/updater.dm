@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 20
+	var/UPDATE_VERSION = 21
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -366,6 +366,33 @@ update
 			if(o.isRace(MAKAIOSHIN))
 				DefaultPassives = list("HolyMod" = 0.5, "AbyssMod" = 0.5, "HellPower" = 1, "FakePeace"=1, "StaticWalk" = 1, "SpaceWalk" = 1, "SpiritPower" = 1, "MartialMagic" = 1, "BladeFisting" = 1)
 				o.passive_handler.increaseList(DefaultPassives)
+	version21
+		version = 21
+		updateMob(mob/o)
+			. = ..()
+			var/DefaultPassives
+			if(o.isRace(MAKAIOSHIN))
+				DefaultPassives = list("Incomplete"=1)
+				o.passive_handler.increaseList(DefaultPassives)
+			if(o.isRace(DRAGON))
+				DefaultPassives = list("Incomplete"=0.5)
+				o.passive_handler.increaseList(DefaultPassives)
+			if(o.isRace(NAMEKIAN))
+				if(o.Class=="Dragon")
+					DefaultPassives = list("QuickCast" = 1, "ManaGeneration" = 2)
+					o.passive_handler.increaseList(DefaultPassives)
+				if(o.Class=="Warrior")
+					DefaultPassives = list("TechniqueMastery" = 1, "Tenacity" = 1, "Pursuer" = 1)
+					o.passive_handler.increaseList(DefaultPassives)
+			if(o.isRace(CELESTIAL))
+				if(o.CelestialAscension=="Angel")
+					if(locate(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2, o))
+						var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = locate(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2, o)
+						del da
+				if(o.CelestialAscension=="Demon")
+					if(locate(/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style, o))
+						var/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style/ui = locate(/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style, o)
+						del ui
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
 /globalTracker/var/GAJA_MAX_EXCHANGE = 1

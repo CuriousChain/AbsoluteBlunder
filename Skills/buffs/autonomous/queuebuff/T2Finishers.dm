@@ -7,7 +7,12 @@
         DefMult=0.8
         passives = list("Brutalize" = 1.5, "StyleMastery" = 2, "BuffMastery" = 2,\
                         "Relentlessness" = 1, "Fury" = 6, "DebuffResistance" = 2, "TensionLock" = 1)
-    
+    Ushin
+        EndMult=1.3
+        StrMult=1.15
+        passives = list("Brutalize" = 2, "StyleMastery" = 2, "BuffMastery" = 2,\
+                        "Relentlessness" = 1, "Momentum" = 3, "UnarmedDamage" = 2, "DebuffResistance" = 2, "TensionLock" = 1)
+
     Potemkin_Buster
         StyleNeeded = "Ubermensch"
         VaizardHealth = 2
@@ -31,7 +36,7 @@
         EndMult=0.6
         passives = list("ComboMaster" = 1, "Gum Gum" = 1, "Relentlessness" = 1, "Momentum" = 2, "Flow" = 2,\
                         "BuffMastery" = 3, "Brutalize" = 1.5, "MovementMastery" = 3, "TensionLock" = 1)
-    
+
 
 
     Cooled_Down
@@ -58,7 +63,7 @@
 
     Plasma_Burned
         passives = list("PureReduction" = -1, "Flow" = -2, "Godspeed" = -1)
-        
+
 
 
     In_the_Details
@@ -78,13 +83,22 @@
         EndMult=1.2
         ForMult=1.2
         DefMult=1.2
-    
+
     Firefox_Style
         passives = list("AfterImages" = 4, "Speed Force" = 2, "Iaijutsu" = 1, "Relentlessness" = 1, \
                         "Fury" = 4, "TripleStrike" = 0.5, "Momentum" = 1.5, \
                         "TensionLock" = 1)
         SpdMult=1.5
         IconLock='SweatDrop.dmi'
+        IconApart=1
+    Shinsengumi_Hitokiri
+        passives = list("AfterImages" = 4, "Speed Force" = 2, "Iaijutsu" = 2, "Relentlessness" = 1, \
+                        "Fury" = 4, "Momentum" = 1.5, \
+                        "TensionLock" = 1)
+        SpdMult=1.45
+        StrMult=1.15
+        IconLock='SweatDrop.dmi'
+        ActiveMessage="advances with the bloodlust of a manslayer."
         IconApart=1
     Alpha_Strike
         passives = list("AfterImages" = 4, "Godspeed" = 4, "Speed Force" = 2, "Iaijutsu" = 1, "Rain" = 5,\
@@ -102,13 +116,13 @@
         EndMult=1.35
         SpdMult=0.75
         VaizardHealth=2
-    
+
 
     Righteous_Crusade
         IconLock='SweatDrop.dmi'
         IconApart=1
         passives = list("Tossing" = 2, "SlayerMod" = 1, "FavoredPrey" = "All",  "Hit Scan" = 2 , "HolyMod" = 2,  \
-        "TensionLock" = 1) // not sure 
+        "TensionLock" = 1) // not sure
         StyleOff = 1.2
         StyleStr = 1.2
         StyleSpd = 1.1
@@ -129,7 +143,7 @@
                         "Scorching" = 5, "SpiritFlow" = 0.5)
         ActiveMessage="ignites their legs!"
         OffMessage="burns out..."
-    
+
 
     Time_Skip
         IconLock='SweatDrop.dmi'
@@ -143,7 +157,7 @@
     Time_Freeze
         IconLock='Stun.dmi'
         passives = list("Shellshocked" = 1, "NoDodge" = 1)
-    
+
 
     Silence
         IconLock='SweatDrop.dmi'

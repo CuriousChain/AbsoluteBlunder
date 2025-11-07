@@ -13,7 +13,7 @@
 					"NeedsSecondSword" = 1, "NeedsThirdSword" = 1, "Iaijutsu" = 1.5, "Musoken" = 1)
 		NeedsSecondSword = 1
 		NeedsThirdSword = 1
-		Finisher=/obj/Skills/Queue/Finisher/King_of_Hell
+		Finisher="/obj/Skills/Queue/Finisher/King_of_Hell"
 		verb/Santoryu()
 			set hidden=1
 			src.Trigger(usr)
@@ -21,13 +21,13 @@
 		SignatureTechnique = 2
 		Copyable=0
 		StyleSpd=1.45
-		StyleStr=1.15
+		StyleOff=1.15
 		StyleActive="Gatotsu"
 		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Berserk"="/obj/Skills/Buffs/NuStyle/SwordStyle/Two_Heaven_As_One",
 							"/obj/Skills/Buffs/NuStyle/SwordStyle/Phalanx_Style"="/obj/Skills/Buffs/NuStyle/SwordStyle/Acrobat")
 		passives = list("HybridStyle" = "UnarmedStyle", "Fury" = 2, "BlurringStrikes" = 1.5, "SweepingStrike" = 1, "BladeFisting" = 1, \
-				"Iaijutsu" = 2.5, "Musoken" = 1 , "Shearing" = 7, "Extend" = 1)
-		Finisher=/obj/Skills/Queue/Finisher/King_of_Hell
+				"Iaijutsu" = 2.5, "Musoken" = 1, "CriticalChance" = 10, "CriticalDamage"= 0.05, "Extend" = 1)
+		Finisher="/obj/Skills/Queue/Finisher/Gatotsu_Rokujin"
 		verb/Santoryu()
 			set hidden=1
 			src.Trigger(usr)
@@ -42,7 +42,7 @@
 		StyleEnd=0.85
 		HeavyOnly=1
 		StyleActive="Guts Berserk"
-		Finisher=/obj/Skills/Queue/Finisher/Dragon_Slayer
+		Finisher="/obj/Skills/Queue/Finisher/Dragon_Slayer"
 		verb/Berserk()
 			set hidden=1
 			src.Trigger(usr)
@@ -57,7 +57,7 @@
 		StyleStr=1.3
 		StyleEnd=1.15
 		StyleActive="Witch Hunter"
-		Finisher=/obj/Skills/Queue/Finisher/Hunt
+		Finisher="/obj/Skills/Queue/Finisher/Hunt"
 		verb/Witch_Hunter()
 			set hidden=1
 			src.Trigger(usr)

@@ -62,7 +62,8 @@
 		SignatureTechnique=1
 		Copyable=0
 		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Fist_of_Khonshu"="/obj/Skills/Buffs/NuStyle/SwordStyle/Witch_Hunter",
-							"/obj/Skills/Buffs/NuStyle/SwordStyle/Dardi_Style"="/obj/Skills/Buffs/NuStyle/SwordStyle/Berserk")
+							"/obj/Skills/Buffs/NuStyle/SwordStyle/Dardi_Style"="/obj/Skills/Buffs/NuStyle/SwordStyle/Berserk",
+							"/obj/Skills/Buffs/NuStyle/MysticStyle/Fire_Weaving"="/obj/Skills/Buffs/NuStyle/SwordStyle/Homura_Dama")
 		passives = list("Half-Sword" = 1.5, "Zornhau" = 1)
 		StyleActive="Art of Fighting"
 		StyleStr=1.3

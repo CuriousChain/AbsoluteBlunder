@@ -15,14 +15,14 @@ ascension
 							passives = list("Hellrisen" = 0.25, "Wrathful Tenacity" = 0.2, "AngerAdaptiveForce" = 0.25)
 						if("Dragon")  /// after the merge, unmerged Dragon and Warrior will also receive some scaling power. Levi added it in for Gaja's in his push
 							///power = 0.75
-							passives = list("SpiritFlow" = 0.25)
+							passives = list("SpiritFlow" = 0.25, "QuickCast"=0.5)
 							force = 0.5
 							imaginationAdd = 0.5
 							recovery = 0.25
 							skills = list(/obj/Skills/Utility/Send_Energy)
 						if("Warrior")
 							//power = 1
-							passives = list("Duelist" = 0.5)
+							passives = list("Duelist" = 0.5, "TechniqueMastery" = 0.25, "Tenacity" = 0.5)
 							strength = 0.35
 							endurance = 0.35
 					if(owner.Class=="Dragon")
@@ -44,7 +44,7 @@ ascension
 						passives = list("Hellrisen" = 0.25, "Wrathful Tenacity" = 0.1, "DemonicDurability" = 0.5)
 					if("Dragon")
 						//power = 1
-						passives =list("SpiritHand" = 0.5, "SpiritFlow" = 0.25)
+						passives =list("SpiritHand" = 0.5, "SpiritFlow" = 0.25, "QuickCast"=0.5, "ManaPU" = 1)
 						force = 0.25
 						offense = 0.25
 						imaginationAdd = 0.25
@@ -52,7 +52,7 @@ ascension
 
 					if("Warrior")
 						//power = 1.5
-						passives = list("Duelist" = 1)
+						passives = list("Duelist" = 1, "TechniqueMastery" = 0.5, "Tenacity" = 0.5)
 						intimidation = 10
 						strength = 0.35
 						endurance = 0.35
@@ -70,12 +70,12 @@ ascension
 						//power = 1.5
 						force= 0.25
 						endurance = 0.5
-						passives = list("Spirit Flow" = 0.25, "HybridStrike" = 0.25)
+						passives = list("Spirit Flow" = 0.25, "HybridStrike" = 0.25, "QuickCast"=1)
 						recovery = 0.25
 					if("Warrior")
 						//power = 2
 						offense = 0.65
-						passives = list ("Duelist" = 2, "Extend" = 1)
+						passives = list ("Duelist" = 2, "Extend" = 1, "Gum Gum" = 1, "TechniqueMastery" = 1, "Tenacity" = 0.5)
 						strength = 0.65
 						recovery = 0.65
 						endurance = 0.65
@@ -90,7 +90,7 @@ ascension
 						passives = list("SlayerMod" = 1.5, "MovementMastery" = 4)
 					if("Warrior")
 						//power = 3
-						passives = list("Duelist" = 2.5, "Extend" = 2)
+						passives = list("Duelist" = 2.5, "Extend" = 1, "Gum Gum" = 1, "TechniqueMastery" = 1, "Tenacity" = 0.5)
 						strength = 1
 						endurance = 0.35
 						recovery = 0.5
@@ -99,7 +99,7 @@ ascension
 						//power = 2.5
 						force = 0.75
 						recovery = 0.5
-						passives = list("HybridStrike" = 0.25)
+						passives = list("HybridStrike" = 0.25, "QuickCast"=1)
 				..()
 		five
 			unlock_potential = ASCENSION_FIVE_POTENTIAL

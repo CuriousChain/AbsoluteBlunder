@@ -267,6 +267,8 @@ mob
 
 			if(src.HasBleedHit())
 				src.WoundSelf(src.GetBleedHit()*0.15*leakVal)
+			if(src.HasBurnHit())
+				src.AddBurn(src.GetBurnHit()*0.15*leakVal, src)
 
 			var/mortalStrike = GetMortalStrike()
 			if(mortalStrike > 0  && FightingSeriously(src, 0))

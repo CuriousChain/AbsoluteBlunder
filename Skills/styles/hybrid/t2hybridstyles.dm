@@ -98,6 +98,37 @@
 	verb/Art_of_Order()
 		set hidden=1
 		Trigger(usr)
+/obj/Skills/Buffs/NuStyle/SwordStyle/Homura_Dama// mystic+armed
+	SignatureTechnique=2
+	passives = list("HybridStyle" = "MysticStyle",  "CriticalChance" = 10, "CriticalDamage"= 0.05, "SpiritSword" = 0.25, "DemonicInfusion" = 1, "Combustion" = 40, "Scorching" = 5,\
+					"Heavy Strike" = "Inferno", "Instinct" = 1, "Persistence" = 0.5, "BurnHit" = 0.5)
+	// crits deal an extra amount based on the enemy's max health
+	StyleStr = 1.45
+	StyleFor = 1.3
+	StyleOff = 1.15
+	StyleEnd = 0.85
+	StyleDef = 0.85
+	ElementalOffense = "HellFire"
+	ElementalDefense = "Fire"
+	ElementalClass = "Fire"
+	BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Aura/Fire"
+	StyleActive="Homura Dama"
+	Finisher="/obj/Skills/Queue/Finisher/Deal_with_the_Devil"
+	var/obj/Skills/demonSkill = FALSE
+	adjust(mob/p)
+		passives = list("HybridStyle" = "MysticStyle",  "CriticalChance" = 10, "CriticalDamage"= 0.05, "SpiritSword" = 0.25, "DemonicInfusion" = 1, "Combustion" = 40, "Scorching" = 5,\
+					"Heavy Strike" = "Inferno", "Instinct" = 1, "Persistence" = 0.5, "BurnHit" = 0.5)
+	Trigger(mob/User, Override)
+		if(!demonSkill)
+			var/inp = input(User, "What demon skill do you want?") in list("/obj/Skills/Buffs/SlotlessBuffs/Magic/HellFire/Hellstorm", "/obj/Skills/Projectile/Magic/HellFire/Hellpyre", "/obj/Skills/Buffs/SlotlessBuffs/Magic/HellFire/OverHeat")
+			BuffTechniques = list(inp)
+			demonSkill = inp
+		sleep(2)
+		..()
+
+	verb/Homura_Dama()
+		set hidden=1
+		Trigger(usr)
 
 
 

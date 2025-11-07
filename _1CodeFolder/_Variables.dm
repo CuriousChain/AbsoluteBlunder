@@ -630,6 +630,8 @@ mob/var
 
 	HellspawnBerserk
 	HellspawnTimer
+	tmp/HellspawnBerserking
+	ForcedHellspawn=0
 
 	ArsGoetiaOwner
 	GoetiaContacted

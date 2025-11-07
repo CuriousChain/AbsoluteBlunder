@@ -25,7 +25,7 @@ ascension
 						force += 0.25
 						defense += 0.5
 
-						
+
 					if("Wind")
 						passives = list("VenomBlood" = 1,"BlurringStrikes" = 0.25, "Flicker" = 1, "Adrenaline" = 2)
 						speed += 0.5
@@ -36,6 +36,7 @@ ascension
 						ecoAdd = 2
 						endurance += 0.5
 						speed += 0.25
+				passives["Incomplete"] = 0.25
 				..()
 
 		two
@@ -66,6 +67,7 @@ ascension
 						ecoAdd = 1
 						endurance += 0.5
 						speed += 0.25
+				passives["Incomplete"] = 0.125
 				..()
 
 		three
@@ -100,6 +102,7 @@ ascension
 						ecoAdd = 1
 						endurance += 0.5
 						speed += 0.25
+				passives["Incomplete"] = 0
 				..()
 		four
 			unlock_potential = ASCENSION_FOUR_POTENTIAL

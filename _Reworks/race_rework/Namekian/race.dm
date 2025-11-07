@@ -26,6 +26,7 @@ race
 			..()
 			user.EnhancedHearing = 1
 			if(user.Class=="Dragon")
+				passives = list("QuickCast" = 1, "ManaGeneration" = 2)
 				if(!locate(/obj/Skills/Utility/Inner_Dragon_Wish) in user.contents)
 					spawn(20)
 						var/obj/Skills/Utility/Inner_Dragon_Wish/W = new /obj/Skills/Utility/Inner_Dragon_Wish(user)
@@ -33,8 +34,10 @@ race
 						user.contents += W
 						W.Cooldown(1, W.Cooldown * 10, user)
 						user << "<font color=#77ff77><b>Your inner dragon slumbers, its power not yet ready to awaken.</b></font>"
+			if(user.Class=="Warrior")
+				passives = list("TechniqueMastery" = 1, "Tenacity" = 1, "Pursuer" = 1)
 			for(var/obj/Skills/Buffs/SlotlessBuffs/Regeneration/r in user)
 				r.RegenerateLimbs=1
-			user.passive_handler.increaseList(passives)
+		//	user.passive_handler.increaseList(passives)
 			for(var/s in skills)
 				user.AddSkill(new s)

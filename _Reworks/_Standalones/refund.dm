@@ -63,8 +63,9 @@ mob/verb/Refund()
 		usr << "You're already trying to refund something!"
 		return
 	if(last_refund_pot!=0 && usr.Potential < last_refund_pot+glob.pot_between_refunds)
-		usr << "You've already refunded something within the last [glob.pot_between_refunds] potential!"
-		return
+		if(usr.Potential>20)
+			usr << "You've already refunded something within the last [glob.pot_between_refunds] potential!"
+			return
 	refunding = TRUE
 
 	var/refunding_skill = pick_refund_skill()

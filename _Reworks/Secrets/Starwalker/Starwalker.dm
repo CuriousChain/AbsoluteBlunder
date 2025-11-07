@@ -4,5 +4,6 @@ obj/Skills/Buffs/SlotlessBuffs/Starwalker
 		ActiveMessage="will also <font color='FFF200'>join"
 		OffMessage="will no longer <font color='FFF200'>join"
 		verb/The_Original_Starwalker()
-			set category="Star                   walker"
+			set name="Star                    walker"
+			set category="Starwalker"
 			src.Trigger(usr)
