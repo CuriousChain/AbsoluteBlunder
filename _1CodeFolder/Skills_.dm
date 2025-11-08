@@ -788,7 +788,7 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 					return
 				if(src.CheckActive("Ki Control")||(src.CheckSpecial("One Hundred Percent Power")&&src.transUnlocked<4)||(src.CheckSpecial("Fifth Form")&&src.transUnlocked<4))
 					return
-				if(src.HasPULock())
+				if(src.HasPULock()||src.HasGatesPULock())
 					return
 				if(src.PoweringUp==1)
 					if(src.transActive()<src.transUnlocked)
@@ -828,7 +828,7 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 						for(var/obj/Skills/Buffs/ActiveBuffs/Ki_Control/KC in src)
 							src.UseBuff(KC)
 					return
-				if(src.HasPULock())
+				if(src.HasPULock()||src.HasGatesPULock())
 					return
 				if(src.PoweringUp)
 					src.PoweringUp=0

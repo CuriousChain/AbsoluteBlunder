@@ -916,7 +916,6 @@ NEW VARIABLES
 
 //Tier S
 		Eight_Gates
-			PULock=1
 			KiControl=1
 			NoSword=1
 			InstantAffect=1
@@ -960,6 +959,7 @@ NEW VARIABLES
 				StrMult = 1.15 + num / glob.GATES_STAT_MULT_DIVISOR
 				EndMult = 1.1 + num / glob.GATES_STAT_MULT_DIVISOR
 				SpdMult = 1.05 + num / glob.GATES_STAT_MULT_DIVISOR*/
+				passives = list("PULock"=0)
 				KenWave=clamp(num / 2, 1, 4)
 
 				/*	if(4)
@@ -1071,11 +1071,11 @@ NEW VARIABLES
 
 				var/tax
 				if(level==FreeGates+1)
-					p.GatesNerfPerc=25
-					p.GatesNerf=RawHours(24)
+					p.GatesNerfPerc=10
+					p.GatesNerf=RawHours(12)
 				else if(level==FreeGates+2)
-					p.GatesNerfPerc=50
-					p.GatesNerf=RawHours(72)
+					p.GatesNerfPerc=40
+					p.GatesNerf=RawHours(48)
 				tax=(p.GatesNerfPerc/100)
 				if(level<=FreeGates)
 					tax=0
@@ -1105,6 +1105,7 @@ NEW VARIABLES
 					usr << "You can't close the Gates because they aren't open!!"
 				else if(usr.GatesActive)
 					usr.GatesActive=0
+
 
 
 			proc/checkUnlocked(mob/p, num)

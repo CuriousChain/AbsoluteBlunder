@@ -23,8 +23,9 @@ scaling with potential as well
 	AutoAnger = 1
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "Instinct" = 2, "PureDamage" = 1.5,\
-						"LikeWater" = 1 + round(p.Potential/25,1), "AbyssMod" = round(p.Potential/40,1), "BleedHit"=0.5)
+		passives = list("CalmAnger" = 1, "Instinct" = 2, "PureDamage" = 1.5,\
+						"LikeWater" = 1 + round(p.Potential/25,1), "AbyssMod" = round(p.Potential/40,1), \
+						"BleedHit"=0.5, "FavoredPrey" = "Depths", "SlayerMod"= 0.25*(p.AscensionsAcquired+1))
 		StrMult = 1.15 + (p.Potential/150)
 		ForMult = 1.15 + (p.Potential/150)
 		OffMult = 1.15 + (p.Potential/200)
@@ -46,9 +47,9 @@ scaling with potential as well
 	BuffName = "Hellspawn"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, \
-						"LikeWater" = 2 + round(p.Potential/25,1), "Flicker" = 1, "Pursuer" = 1,  "BuffMastery" = 1.5, "PureDamage" = 2, \
-						"Instinct" = 3, "AbyssMod" = round(p.Potential/30,1), "BleedHit"=0.5)
+		passives = list("CalmAnger" = 1, \
+						"LikeWater" = 2 + round(p.Potential/25,1), "Flicker" = 1, "Pursuer" = 1, "PureDamage" = 2, \
+						"Instinct" = 3, "AbyssMod" = round(p.Potential/30,1), "BleedHit"=0.5, "FavoredPrey" = "Depths","SlayerMod"= 0.25*(p.AscensionsAcquired+1))
 		StrMult = 1.25 + (p.Potential/100)
 		ForMult = 1.25 + (p.Potential/100)
 		OffMult = 1.25 + (p.Potential/200)
@@ -71,8 +72,9 @@ scaling with potential as well
 	BuffName = "True Hellspawn"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.25, "LikeWater" = 2 + round(p.Potential/20,1), \
-						"Powerhouse" = 1 + (p.Potential/75), "Instinct" = 4, "Flicker" = 2, "Pursuer" = 2, "BuffMastery" = 2, "PureDamage" = 2.5, "AbyssMod" = round(p.Potential/20,1))
+		passives = list("CalmAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.25, \
+						"LikeWater" = 2 + round(p.Potential/20,1),"SlayerMod"= 0.5*(p.AscensionsAcquired+1), \
+						"Powerhouse" = 1 + (p.Potential/75), "Instinct" = 4, "Flicker" = 2, "Pursuer" = 2, "PureDamage" = 2.5, "AbyssMod" = round(p.Potential/20,1), "FavoredPrey" = "Depths")
 		StrMult = 1.35 + (p.Potential/50)
 		ForMult = 1.35 + (p.Potential/50)
 		OffMult = 1.35 + (p.Potential/50)
@@ -94,8 +96,8 @@ scaling with potential as well
 	BuffName = "Herald of the Depths"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.1, "LikeWater" = 2 + round(p.Potential/15,1),\
-						"Powerhouse" = 2 + (p.Potential/25), "Instinct" = 5, "Flicker" = 3, "Pursuer" = 3, "BuffMastery" = 3, "PureDamage" = 3, "AbyssMod" = round(p.Potential/15,1))
+		passives = list("CalmAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.1, "LikeWater" = 2 + round(p.Potential/15,1),"SlayerMod"= 0.5*(p.AscensionsAcquired+1),\
+						"Powerhouse" = 2 + (p.Potential/25), "Instinct" = 5, "Flicker" = 3, "Pursuer" = 3, "PureDamage" = 3, "AbyssMod" = round(p.Potential/15,1), "FavoredPrey" = "Beyond")
 		StrMult = 1.45 + (p.Potential/30)
 		ForMult = 1.45 + (p.Potential/30)
 		OffMult = 1.45 + (p.Potential/30)

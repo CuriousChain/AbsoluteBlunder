@@ -4075,12 +4075,14 @@ obj/Special
 			gotoX=404
 			gotoY=338
 			gotoZ=12
+			Savable=0
 		Depths
 			icon='DeathBallStrong.dmi'
 			HellTeleport=1
-			gotoX=404
-			gotoY=338
+			gotoX=320
+			gotoY=342
 			gotoZ=8
+			Savable=0
 
 	PermaBarrier
 		Grabbable=0
@@ -4131,6 +4133,7 @@ obj/Special
 		Grabbable=0
 		Health=1.#INF
 		Destructable=0
+		Savable=0
 
 	JENOVA
 		icon='Jenova stuff.dmi'
@@ -4160,6 +4163,7 @@ obj/Special
 		Grabbable=0
 		Health=6957830600000000000000000
 		Destructable=0
+		Savable=0
 
 	midgarTrainWallTop
 		icon='TrainInterior.dmi'

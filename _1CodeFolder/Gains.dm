@@ -1330,9 +1330,7 @@ mob
 			for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/A in src.Buffs)
 				//Activations
 				if(!A.SlotlessOn)
-					if(src.GatesActive==A.GatesNeeded)
-						A.Trigger(src,Override=1)
-						continue
+
 
 					if(A.NeedsPassword)
 						if(!A.Password)
@@ -1382,17 +1380,19 @@ mob
 						else if(A.NeedsAlignment=="Good")
 							if(src.IsGood())
 								A.Trigger(src,Override=1)
+					if(src.CheckActive("Eight Gates")&&A.GatesNeeded)
+						if(src.GatesActive>=A.GatesNeeded)
+							A.Trigger(src,Override=1)
+							continue
 				if(A.AlwaysOn)
 					if(!A.Using&&!A.SlotlessOn)
 						A.Trigger(src,Override=1)
 					if(A.Triggers)
 						A.Triggers.checkTrigger(src, A)
 
+
 				//Deactivations
 				if(A.SlotlessOn)
-					if(A.GatesNeeded>src.GatesActive)
-						A.Trigger(src,Override=1)
-						continue
 					if(A.ABuffNeeded)
 						if(A.ABuffNeeded.len>0)
 							if(!src.ActiveBuff)
@@ -1460,6 +1460,10 @@ mob
 							if(A.SlotlessOn)
 								A.Trigger(src,Override=1)
 								continue
+					if(!src.CheckActive("Eight Gates")&&A.GatesNeeded)
+						if(A.GatesNeeded>src.GatesActive)
+							A.Trigger(src,Override=1)
+							continue
 
 				if(A.AlwaysOn) //This only gets run if it has been deactivated
 					if(A.Using)

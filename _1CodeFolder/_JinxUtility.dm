@@ -17,6 +17,10 @@ mob
 				var/ascension/asc = a
 				if(!asc.applied&&!asc.checkAscensionUnlock(src,Potential)) continue
 				asc.onAscension(src)
+		CheckRevert()
+			for(var/a in race.ascensions)
+				var/ascension/asc = a
+				asc.revertAscension(src)
 
 		DamageSelf(var/val, trueDmg)
 			if(val < 0)
@@ -560,7 +564,7 @@ mob
 				cursedSheathValue = clamp(0, cursedSheathValue, SagaLevel*50)
 
 			if(src.HasErosion())
-				var/Erosion = src.GetErosion()
+				var/Erosion = (src.GetErosion()/4)
 				var/MPow=defender.Power_Multiplier/8
 				var/BPCap=MPow*Erosion
 				var/MStr=defender.GetStrMult()
@@ -1252,7 +1256,7 @@ mob
 			if(src.KamuiBuffLock)
 				Mod+=1
 			if(src.Saga=="Eight Gates")
-				Mod+=0.05*GatesActive
+				Mod+=0.01*GatesActive
 			// if(src.isRace(HUMAN))
 			// 	if(src.AscensionsAcquired)
 			// 		Mod+=(src.AscensionsAcquired/20)
@@ -1602,7 +1606,7 @@ mob
 			if(src.KamuiBuffLock)
 				Mod+=1
 			if(Saga&&src.Saga=="Eight Gates")
-				Mod+=0.05*GatesActive
+				Mod+=0.01*GatesActive
 			if(Secret == "Heavenly Restriction")
 				if(secretDatum?:hasImprovement("Speed"))
 					Mod += round(clamp(1 + secretDatum?:getBoon(src, "Speed") / 8, 1, 8), 0.1)

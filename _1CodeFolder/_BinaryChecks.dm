@@ -815,7 +815,7 @@ mob
 				var/viewCount = getSenketsuViewers()
 				viewCount /= passive_handler.Get("Shameful Display")
 				Return += sqrt(viewCount)
-			if(src.GatesActive && src.GatesActive<8)
+			if(src.GatesActive &&src.GatesActive>src.SagaLevel&& src.GatesActive<8)
 				Return+=(4/src.SagaLevel)
 			return Return
 		HasBurnHit()
@@ -940,6 +940,10 @@ mob
 		HasPULock()
 			if(passive_handler.Get("PULock"))
 				return passive_handler.Get("PULock")
+			return 0
+		HasGatesPULock()
+			if(passive_handler.Get("Gates PULock"))
+				return passive_handler.Get("Gates PULock")
 			return 0
 		HasPUSpike()
 			if(passive_handler.Get("PUSpike"))
@@ -1894,6 +1898,12 @@ mob
 							return 1
 				else if(passive_handler["FavoredPrey"] in RACES)
 					if(enemy.race.name == passive_handler["FavoredPrey"])
+						return 1
+				else if(passive_handler["FavoredPrey"] == "Depths")
+					if(enemy.isRace(DEMON, ELDRITCH))
+						return 1
+				else if(passive_handler["FavoredPrey"] == "Beyond")
+					if(enemy.isRace(DEMON, ELDRITCH, MAKAIOSHIN, ANGEL, POPO))
 						return 1
 				return 0
 			return 0

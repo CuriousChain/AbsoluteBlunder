@@ -14,6 +14,10 @@ ascension
 				if(owner.AngelAscension == "Guardian")
 					owner.GrantGuardianItem(/obj/Items/Wearables/Guardian/Belt_of_Truth)
 					owner << "(Please re-equip your Heavenly Armaments to receive their boons.)"
+				if(owner.AngelAscension == "Mentor")
+					passives["TechniqueMastery"]=0.5
+					passives["StyleMastery"]=1
+					passives["GotUpdate22"]=1
 				owner.Class = "Principality"
 		two
 			unlock_potential = ASCENSION_TWO_POTENTIAL
@@ -27,6 +31,7 @@ ascension
 			postAscension(mob/owner)
 				//t2 style
 				if(owner.AngelAscension=="Mentor")
+					passives["StyleMastery"]=1
 					if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct, owner))
 						var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct
 						owner.AddSkill(s)

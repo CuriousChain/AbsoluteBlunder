@@ -1,6 +1,7 @@
 //t1 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Heart
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	PowerMult=1.15
 	StrMult=1.15
 	ForMult = 1.15
@@ -17,7 +18,8 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Heart
 		adjust(User)
 		..()
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	PowerMult=1.15
 	StrMult=1.25
 	ForMult = 1.15
@@ -35,7 +37,8 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
 		adjust(User)
 		..()
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	PowerMult=1.1
 	StrMult=1.1
 	EndMult = 1.1
@@ -86,27 +89,31 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul
 	passives = list("Instinct" = 1, "Pursuer" = 1)
 //t3 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Shining_Star
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	StrMult=1.25
 	SpdMult=1.15
 	Cooldown = 1
 	passives = list("Pursuer" = 1,"KiControlMaster" =1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Unwavering_Soul
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	StrMult=1.1
 	EndMult = 1.5
 	BioArmor=50
 	Cooldown = 1
 	passives = list("Unstoppable" =1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Of_Chaos
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	AngerPoint=65
 	RecovMult=1.75
 	Cooldown = 1
 	passives = list("FluidForm" = 1, "Controlled Chaos" = 1)
 
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Axe_of_Justice
-	AlwaysOn=1
+	TooMuchHealth = 100
+	NeedsHealth=99
 	EndMult = 1.25
 	ForMult=1.5
 	Cooldown = 1
@@ -790,7 +797,7 @@ obj/Skills/Buffs
 			SwordClass="Small"
 			StrMult=1.85
 			Cooldown = 1
-			SwordAscension=3
+			SwordAscension=5
 			OffMult=0.45
 			passives = list("HolyMod" = 3)
 			ActiveMessage="pulls out a small shard of glass that seems barely usable as a weapon."
@@ -810,7 +817,7 @@ obj/Skills/Buffs
 			ForMult=1.15
 			StrMult=1.3
 			Cooldown = 1
-			SwordAscension=1
+			SwordAscension=3
 			ActiveMessage="draws forth a skull emblazoned scythe-ax!"
 			OffMessage="pockets the weap-... did it just smile at you?!"
 			verb/Devilsknife()
@@ -827,7 +834,7 @@ obj/Skills/Buffs
 			SwordY=-32
 			SwordClass="Heavy"
 			StrMult=1.75
-			SwordAscension=3
+			SwordAscension=5
 			Cooldown = 1
 			ActiveMessage="faces fate with the Axe of Justice."
 			OffMessage="puts the Axe of Justice away."
@@ -843,8 +850,9 @@ obj/Skills/Buffs
 			SwordY=-32
 			SwordClass="Medium"
 			StrMult=1.25
+			ForMult=1.25
 			Cooldown = 1
-			SwordAscension=1
+			SwordAscension=3
 			ActiveMessage="draws forth a black and orange sword!"
 			OffMessage="sheathes their spooky blade!"
 			verb/Spookysword()

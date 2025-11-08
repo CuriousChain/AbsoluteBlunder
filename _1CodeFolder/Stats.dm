@@ -901,7 +901,7 @@ mob/proc/
 
 			var/PUGain=src.PUSpeedModifier
 
-			if(src.HasPULock())
+			if(src.HasPULock()||src.HasGatesPULock())
 				PUGain=0
 
 			if(!src.HasHealthPU())

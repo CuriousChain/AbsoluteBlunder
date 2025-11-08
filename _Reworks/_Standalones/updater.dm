@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 21
+	var/UPDATE_VERSION = 22
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -393,6 +393,20 @@ update
 					if(locate(/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style, o))
 						var/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style/ui = locate(/obj/Skills/Buffs/NuStyle/MortalUI/Mortal_Instinct_Style, o)
 						del ui
+	version22
+		version = 22
+		updateMob(mob/o)
+			. = ..()
+			var/NewPassives
+			if(o.passive_handler.Get("GotUpdate22")<1)
+				if(o.isRace(CELESTIAL, ANGEL))
+					NewPassives = list("TechniqueMastery" = 0.5, "StyleMastery" = 1)
+					o.passive_handler.increaseList(New)
+			if(o.isRace(CELESTIAL, ANGEL))
+				if(o.AngelAscension == "Mentor"||o.CelestialAscension=="Angel")
+					NewPassives = list("TechniqueMastery" = 0.5, "StyleMastery" = 1)
+					o.passive_handler.increaseList(NewPassives)
+
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
 /globalTracker/var/GAJA_MAX_EXCHANGE = 1
