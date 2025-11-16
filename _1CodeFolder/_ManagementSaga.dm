@@ -201,6 +201,8 @@ mob/Admin3/verb
 					P.Saga="King of Braves"
 					if(!locate(/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves, P))
 						P.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves)
+					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave, P))
+						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Will_Knife, P))
 						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Will_Knife)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Protect_Shade, P))
