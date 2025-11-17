@@ -201,12 +201,15 @@ mob/Admin3/verb
 					P.Saga="King of Braves"
 					if(!locate(/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves, P))
 						P.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves)
+					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave, P))
+						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Will_Knife, P))
 						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Will_Knife)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Protect_Shade, P))
 						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Protect_Shade)
 					if(!locate(/obj/Skills/Projectile/King_of_Braves/Broken_Magnum, P))
 						P.AddSkill(new/obj/Skills/Projectile/King_of_Braves/Broken_Magnum)
+					P.CyberizeMod+=0.2
 					P.SagaLevel=1
 
 				if("Unlimited Blade Works")
@@ -325,14 +328,13 @@ mob/Admin3/verb
 
 					else if(P.KamuiType=="Junketsu")
 						P.contents += new/obj/Items/Sword/Heavy/Secret_Sword_Bakuzan
-						P.passive_handler.Increase("BladeFisting")
 						P.passive_handler.Increase("CriticalDamage", 0.1)
 						P.passive_handler.Increase("CriticalChance", 10)
 						P.passive_handler.Increase("CriticalBlock", 0.1)
 						P.passive_handler.Increase("BlockChance", 10)
 						P.passive_handler.Increase("LikeWater", 2)
-						P.SureHitTimer = 25
-						P.SureDodgeTimer = 25
+						P.SureHitTimerLimit = 25
+						P.SureDodgeTimerLimit = 25
 
 				if("Magic Knight")
 					P.SagaLevel=1
@@ -1328,6 +1330,9 @@ mob
 					//			src.contents+=new/obj/AutoHit/Night_Guy
 
 				if("King of Braves")
+					src << "You've obtained more skill with Machines!"
+					passive_handler.Increase("PilotingProwess", 0.2)
+					src.CyberizeMod+=0.2
 					if(src.SagaLevel==2)
 						if(!locate(/obj/Skills/Queue/DrillKnee, src))
 							src.AddSkill(new/obj/Skills/Queue/DrillKnee)
@@ -1352,10 +1357,6 @@ mob
 						if(!locate(/obj/Skills/Projectile/King_of_Braves/Broken_Phantom, src))
 							src.AddSkill(new/obj/Skills/Projectile/King_of_Braves/Broken_Phantom)
 						passive_handler.Increase("SpaceWalk", 1)
-						src.CyberizeMod+=0.5
-						if(src.CyberizeMod>1)
-							src.CyberizeMod=1
-						src.PilotingProwess+=1
 						src << "You upgrade your abilities to carry you into the Space Era!"
 					if(src.SagaLevel==6)
 						src << "You master using the power of Destruction and Protection simultaneously!"
