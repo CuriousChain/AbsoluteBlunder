@@ -444,6 +444,25 @@ update
 					o.passive_handler.Set("HybridStrike", 2)
 				else if(o.Class=="Monkey King" && o.AscensionsAcquired == 1)
 					o.passive_handler.Set("HybridStrike", 1)
+		version25
+		version = 25
+		updateMob(mob/p)
+			. = ..()
+			if(p.Saga == "Kamui" && p.KamuiType == "Junketsu")
+				p.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/Kamui_Senpu)
+				p.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/Kamui_Senpu_Zanken)
+			for(var/obj/Skills/Buffs/NuStyle/MysticStyle/Magma_Walker/mw in p)
+				mw.StyleComboUnlock = list("/obj/Skills/Buffs/NuStyle/MysticStyle/Stormbringer" = "/obj/Skills/Buffs/NuStyle/MysticStyle/Plasma_Style",\
+			"/obj/Skills/Buffs/NuStyle/MysticStyle/Inferno" = "/obj/Skills/Buffs/NuStyle/MysticStyle/Hellfire",\
+			"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Black_Leg_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe")
+			for(var/obj/Skills/Buffs/NuStyle/UnarmedStyle/Black_Leg_Style/bl in p)
+				bl.StyleComboUnlock = list("obj/Skills/Buffs/NuStyle/MysticStyle/Magma_Walker" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe",\
+			"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Wushu_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Mantis_And_Crane_Style",\
+			"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Circuit_Breaker_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing")
+			for(var/obj/Skills/Buffs/NuStyle/UnarmedStyle/Circuit_Breaker_Style/cb in p)
+				cb.StyleComboUnlock = list("obj/Skills/Buffs/NuStyle/UnarmedStyle/Black_Leg_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing")
+
+
 
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
