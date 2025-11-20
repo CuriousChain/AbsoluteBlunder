@@ -243,7 +243,11 @@ mob
 						var/tensionGain = 0
 						if(passive_handler.Get("Antsy"))
 							tensionGain = passive_handler.Get("Antsy")/10
-						src.Tension+=(val) * (glob.TENSION_MULTIPLIER + tensionGain)
+						var/HTMult=1
+						if(passive_handler.Get("HighTension"))
+							HTMult=1+passive_handler.Get("HighTension")
+
+						src.Tension+=(val) * (glob.TENSION_MULTIPLIER + tensionGain) * HTMult
 
 				if(defender.StyleBuff&&defender.StyleBuff) //TODO finish this
 					if(defender.Tension<100 && !defender.HasTensionLock())
@@ -1673,7 +1677,8 @@ mob
 
 			if(Secret && Secret == "Werewolf" && CheckSlotless("Full Moon Form"))
 				Mod += 1 * (secretDatum?:getHungerBoon())
-
+			if(passive_handler.Get("TensionPowered"))
+				Mod+=(1+(passive_handler.Get("TensionPowered")*2))
 
 			Spd*=Mod
 			Spd*=Mult

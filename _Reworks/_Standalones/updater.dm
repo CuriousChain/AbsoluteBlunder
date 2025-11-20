@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 24
+	var/UPDATE_VERSION = 26
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -434,7 +434,7 @@ update
 						o.secretDatum.secretVariable["ConquerorsHaki"] = 1
 						o.AddSkill(new/obj/Skills/AutoHit/Haki/Conquerors_Haki)
 						o.AddSkill(new/obj/Skills/Queue/Haki/Kings_Infusion)
-		version24
+	version24
 		version = 24
 		updateMob(mob/o)
 			. = ..()
@@ -444,7 +444,7 @@ update
 					o.passive_handler.Set("HybridStrike", 2)
 				else if(o.Class=="Monkey King" && o.AscensionsAcquired == 1)
 					o.passive_handler.Set("HybridStrike", 1)
-		version25
+	version25
 		version = 25
 		updateMob(mob/p)
 			. = ..()
@@ -461,6 +461,17 @@ update
 			"/obj/Skills/Buffs/NuStyle/UnarmedStyle/Circuit_Breaker_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing")
 			for(var/obj/Skills/Buffs/NuStyle/UnarmedStyle/Circuit_Breaker_Style/cb in p)
 				cb.StyleComboUnlock = list("obj/Skills/Buffs/NuStyle/UnarmedStyle/Black_Leg_Style" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing")
+	version26
+		version = 26
+		updateMob(mob/o)
+			. = ..()
+			if(o.isRace(HUMAN)||o.isRace(CELESTIAL))
+				o.race.transformations += new /transformation/human/high_tension()
+				o.race.transformations += new /transformation/human/high_tension_MAX()
+				o.race.transformations += new /transformation/human/super_high_tension()
+				o.race.transformations += new /transformation/human/super_high_tension_MAX()
+				o.race.transformations += new /transformation/human/unlimited_high_tension()
+				o<<"You have been given High Tension."
 
 
 

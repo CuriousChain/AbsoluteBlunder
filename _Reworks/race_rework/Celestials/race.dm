@@ -55,5 +55,10 @@ race
 							user.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
 				user.CelestialAscension = Choice
 				user.passive_handler.increaseList(passives)
+				user.race.transformations += new /transformation/human/high_tension()
+				user.race.transformations += new /transformation/human/high_tension_MAX()
+				user.race.transformations += new /transformation/human/super_high_tension()
+				user.race.transformations += new /transformation/human/super_high_tension_MAX()
+				user.race.transformations += new /transformation/human/unlimited_high_tension()
 				for(var/s in skills)
 					user.AddSkill(new s)

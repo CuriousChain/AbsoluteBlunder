@@ -18,6 +18,8 @@ mob/proc/Meditation()
 		if(isRace(BEASTMAN) && race?:Racial == "Heart of The Beastman")
 			if(passive_handler["Grit"] == 0)
 				passive_handler.Set("Grit", 1)
+		if(isRace(HUMAN) && transActive||isRace(CELESTIAL) && transActive)
+			src.Revert()
 		/*if(length(magatamaBeads))
 			loseMagatama()*/
 		med.delayTimer()
