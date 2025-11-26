@@ -151,6 +151,15 @@ ascension
 					choices = list()
 					passives = list("UnhingedForm" = 0.25, "Pursuer" = 1)
 
+					onAscension(mob/owner)
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
+						..()
+				
 				anger
 					choices = list()
 					angerPoint = 5
@@ -159,6 +168,12 @@ ascension
 					onAscension(mob/owner)
 						if(angerPoint+owner.AngerPoint > 65)
 							passives["EndlessAnger"] = 1
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
 						..()
 
 				both
@@ -168,6 +183,12 @@ ascension
 					onAscension(mob/owner)
 						if(angerPoint+owner.AngerPoint > 65)
 							passives["EndlessAnger"] = 1
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
 						..()
 
 			remain_consistent
@@ -176,13 +197,40 @@ ascension
 					choices = list()
 					passives = list("Adaptation" = 0.2, "Flicker" = 1, "Hustle" = 0.15)
 
+					onAscension(mob/owner)
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
+						..()
+
 				consistency
 					choices = list()
 					passives = list("Steady" = 0.25, "DebuffResistance" = 0.15, "StableBP" = 0.5)
 
+					onAscension(mob/owner)
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
+						..()
+
 				both
 					choices = list()
 					passives = list("Adaptation" = 0.1, "Flicker" = 0.5, "Hustle" = 0.075, "Steady" = 0.175, "DebuffResistance" = 0.075, "StableBP" = 0.25)
+
+					onAscension(mob/owner)
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
+						..()
 
 			become_docile
 				choices = list("Stability" = /ascension/sub_ascension/majin/become_docile/stability, "Peace" = /ascension/sub_ascension/majin/become_docile/peace, "Both" = /ascension/sub_ascension/majin/become_docile/both)
@@ -193,11 +241,26 @@ ascension
 					onAscension(mob/owner)
 						if(owner.passive_handler.Get("Juggernaut")+passives["Juggernaut"] >= 1)
 							passives["GiantForm"] =1
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
 						..()
 
 				peace
 					choices = list()
 					passives = list("Flow" = 0.5, "DeathField" = 0.5, "VoidField" = 0.5)
+
+					onAscension(mob/owner)
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
+						..()
 
 				both
 					choices = list()
@@ -206,4 +269,10 @@ ascension
 					onAscension(mob/owner)
 						if(owner.passive_handler.Get("Juggernaut")+passives["Juggernaut"] >= 1)
 							passives["GiantForm"] =1
+						if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/innocence)
+							owner.Class = "Innocence"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/super)
+							owner.Class = "Super"
+						else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/majin/unhinged)
+							owner.Class = "Unhinged"
 						..()
