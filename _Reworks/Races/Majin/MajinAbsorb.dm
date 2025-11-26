@@ -165,6 +165,9 @@ proc/removeDuplicates(list/list1)
         if(MAJIN)
             . = getMajinRacials()
         if("Half Saiyan")
+            . += "Tenacity"
+            . += "Brutalize"
+            . += "Adrenaline"
         if(ELF)
             . += "Deicide"
             . += "TechniqueMastery"
@@ -172,38 +175,68 @@ proc/removeDuplicates(list/list1)
             . += "Unstoppable"
             . += "BladeFisting"
         if(SAIYAN)
-            . += "Intimidation"
+            . += "Brutalize"
             . += "MovementMastery"
+            if(Class=="Honor")
+                . += "Honor"
+                . += "Defiance"
+                . += "Juggernaut"
+            if(Class=="Pride")
+                . += "Pride"
+                . += "PureDamage"
+            if(Class=="Zeal")
+                . += "Zeal"
+                . += "Adaptation"
         if(HUMAN)
-            . += "PilotingProwess"
+            . += "Tenacity"
             . += "Adrenaline"
-            . += "DemonicDurability"
+            . += "Innovation"
         if(MAKYO)
-            . += "MovementMastery"
-            . += "Intimidation"
-        if(NAMEKIAN)
-            . += "EnhancedHearing"
-            . += "Intimidation"
-            // Not sure what else
-        if(BEASTMAN)
-            . += "EnhancedSmell"
-            . += "EnhancedHearing"
+            . += "Juggernaut"
             . += "DemonicDurability"
+            . += "HeavyHitter"
+        if(NAMEKIAN)
+            if(Class=="Dragon")
+                . += "QuickCast"
+                . += "ManaGeneration"
+            if(Class=="Warrior")
+                . += "Pursuer"
+                . += "Tenacity"
+                . += "TechniqueMastery"
+        if(BEASTMAN)
+            if(Class=="Heart of The Beastman")
+                . += "Grit"
+            if(Class=="Monkey King")
+                . += "Hardening"
+                . += "Instinct"
+                . += "Nimbus"
+            if(Class=="Undying Rage")
+                . += "Fury"
+                . += "Wrathful Tenacity"
+            if(Class=="Feather Cowl")
+                . += "Hardening"
+                . += "Pressure"
+                . += "BladeFisting"
+            if(Class=="Feather Knife")
+                . += "Tossing"
+                . += "Momentum"
+                . += "BladeFisting"
         if(YOKAI)
-            . += "EnhancedHearing"
-            . += "TechniqueMastery"
-            . += "MovementMastery"
+            . += "ManaGeneration"
+            . += "Touch of Death"
         if(ELDRITCH)
-            . += "SpaceWalk"
-            . += "DebuffResistance"
+            . += "Void"
             . += "VenomResistance"
             . += "SoulFire"
             . += "DeathField"
             . += "VoidField"
         if(DEMON)
             . += "CursedWounds"
-            . += "DemonDurability"
-            . += "HellPower"
+            . += "AbyssMod"
+            . += "SpaceWalk"
+            . += "StaticWalk"
+            . += "FakePeace"
+            . += "MartialMagic"
         if(ELF)
             . += "Xenobiology"
             . += "Deicide"
@@ -212,21 +245,46 @@ proc/removeDuplicates(list/list1)
             . += "CashCow"
             . += "Blubber"
         if(DRAGON)
-            . += "Erosion"
-            . += "SpiritHand"
-            . += "Godspeed"
+            if(Class=="Water")
+                . += "SoftStyle"
+                . += "Fishman"
+                . += "FluidForm"
+            if(Class=="Fire")
+                . += "DemonicDurability"
+                . += "SpiritHand"
+            if(Class=="Metal")
+                . += "Hardening"
+                . += "KBRes"
+            if(Class=="Gold")
+                . += "Blubber"
+                . += "CashCow"               
         if(ANGEL)
             . += "SpiritPower"
-            . += "TechniqueMastery"
-            . += "StyleMastery"
+            . += "HolyMod"
+            . += "StaticWalk"
+            . += "SpaceWalk"
+            . += "MartialMagic"
+            if(Class=="Mentor")
+                . += "TechniqueMastery"
+                . += "StyleMastery"
+                . += "SpiritPower"
+                . += "HolyMod"
+                . += "StaticWalk"
+                . += "SpaceWalk"
+                . += "MartialMagic"
         if(CELESTIAL)
             . += "Tenacity"
             . += "Adrenaline"
-            . += "SpiritPower"
         if(MAKAIOSHIN)
             . += "SpiritPower"
             . += "HellPower"
-            . += "HellRisen"
+            . += "HolyMod"
+            . += "AbyssMod"
+            . += "StaticWalk"
+            . += "SpaceWalk"
+            . += "FakePeace"
+            . += "MartialMagic"
+            . += "BladeFisting"
         if(POPO)
             . += "ManaGeneration"
             . += "QuickCast"
