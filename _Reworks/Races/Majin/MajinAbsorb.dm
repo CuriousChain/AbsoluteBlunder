@@ -301,8 +301,30 @@ majinAbsorb/proc/doAbsorb(mob/absorber, mob/absorbee)
         if(absorbed[absorbee.ckey] == absorbee.ckey)
             absorber << "You've already absorbed this person, absorb another person."
             return
-    if(absorbCount >= absorbLimit)
-        absorber << "You can't absorb any more passives, you've reached your limit"
+    if(absorbCount >= absorbLimit)        
+        if(absorber.AscensionsAcquired==0 && absorber.Potential >= 10)
+            var/ascension/next
+            switch(absorber.AscensionsAcquired + 1)
+                if(1) next = new /ascension/majin/one
+            if(next)
+                next.onAscension(absorber)
+                absorber << "You've awakened to your next ascension through absorbing countless victims."
+        if(absorber.AscensionsAcquired==1 && absorber.Potential >= 20)
+            var/ascension/next
+            switch(absorber.AscensionsAcquired + 1)
+                if(2) next = new /ascension/majin/two
+            if(next)
+                next.onAscension(absorber)
+                absorber << "You've awakened to your next ascension through absorbing countless victims."
+        if(absorber.AscensionsAcquired==2 && absorber.Potential >= 45)
+            var/ascension/next
+            switch(absorber.AscensionsAcquired + 1)
+                if(3) next = new /ascension/majin/three
+            if(next)
+                next.onAscension(absorber)
+                absorber << "You've awakened to your next ascension through absorbing countless victims."
+        else
+            absorber << "You can't absorb any more passives, you've reached your limit."	                               
         return
     var/list/racialPassives = absorbee.getRacialPassives()
     var/passiveInQuestion = input(absorber, "Which passive would you like to absorb?", "Absorb") in racialPassives
