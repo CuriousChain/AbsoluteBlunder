@@ -1283,6 +1283,7 @@ obj
 				Copyable=2
 				Distance=50
 				DamageMult=1.5 // this shit ass, if u land it u deserve to do damage
+				ComboMaster=1
 				EnergyCost=5
 				Deflectable=0
 				Charge=0.5
