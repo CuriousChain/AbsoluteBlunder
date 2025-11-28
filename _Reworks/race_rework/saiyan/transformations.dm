@@ -6,7 +6,6 @@ transformation
 			form_aura_icon = 'AurasBig.dmi'
 			form_aura_icon_state = "SSJ"
 			form_aura_x = -32
-			form_icon_1_icon = 'SS2Sparks.dmi'
 			form_glow_icon = 'Ripple Radiance.dmi'
 			form_glow_x = -32
 			form_glow_y = -32
