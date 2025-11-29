@@ -5,7 +5,6 @@ transformation
 			form_aura_icon = 'AurasBig.dmi'
 			form_aura_icon_state = "Kaioken"
 			form_aura_x = -32
-			form_icon_1_icon = 'SS2Sparks.dmi'
 			form_glow_icon = 'Ripple Radiance.dmi'
 			form_glow_x = -32
 			form_glow_y = -32
@@ -14,9 +13,9 @@ transformation
 			PUSpeedModifier = 1.5
 			mastery_boons(mob/user)
 				if(mastery>=75&&mastery<100)
-					passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5, "BuffMastery" = 4, "PureDamage" = 3, "UnderDog" = 1, "PureReduction"=-1, "BleedHit"=0.75)
+					passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5, "BuffMastery" = 4, "PureDamage" = 3, "UnderDog" = 1, "PureReduction"=-1)
 				if(mastery==100)
-					passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5, "BuffMastery" = 4, "PureDamage" = 3, "UnderDog" = 1, "Persistence"=2, "BleedHit"=0.75, "Herald of the End"=1)
+					passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5, "BuffMastery" = 4, "PureDamage" = 3, "UnderDog" = 1, "Persistence"=2, "Herald of the End"=1)
 					if(prob(15)&&user.transUnlocked<2)
 						user.passive_handler.Increase("The Clock Is Ticking", 0.5)
 						user<<"<font color=red><b>This form is not to be used lightly, [user]. The clock is ticking.</font></b>"
