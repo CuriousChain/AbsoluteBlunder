@@ -29,9 +29,11 @@ ascension
 			unlock_potential = ASCENSION_THREE_POTENTIAL
 			intimidation = 1.5
 			passives = list("Brutalize" = 0.5)
+			strength = 0.25
+			endurance = 0.25
 			onAscension(mob/owner)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/zeal)
-					passives += list("Adaptation" = 0.5)
+					passives += list("Adaptation" = 0.5, "LikeWater" = 0.5)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/honor)
 					passives += list("AngerAdaptiveForce" = 0.2, "Juggernaut" = 1)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride)
@@ -44,7 +46,7 @@ ascension
 			passives = list("Brutalize" = 1)
 			onAscension(mob/owner)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/zeal)
-					passives += list("Adaptation" = 0.5)
+					passives += list("Adaptation" = 0.5, "LikeWater" = 0.5)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/honor)
 					passives += list("AngerAdaptiveForce" = 0.2, "Adrenaline" = 1)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride)
@@ -55,7 +57,7 @@ ascension
 			intimidation = 1.5
 			onAscension(mob/owner)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/zeal)
-					passives += list("Adaptation" = 0.5)
+					passives += list("Adaptation" = 0.5, "LikeWater" = 1)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/honor)
 					passives += list("AngerAdaptiveForce" = 0.2, "Adrenaline" = 1)
 				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride)
@@ -68,15 +70,15 @@ ascension
 			honor
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Grit)
 				passives = list("Honor" = 1, "Defiance" = 1, "Juggernaut" = 0.5)
-				
+
 				onAscension(mob/owner)
 					owner.Class = "Honor"
-					..()	
+					..()
 
 			pride
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Dominance)
 				passives = list("Pride" = 1, "PureDamage" = 0.5)
-				
+
 				onAscension(mob/owner)
 					owner.Class = "Pride"
 					..()
@@ -84,7 +86,7 @@ ascension
 			zeal
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Soul)
 				passives = list("Zeal" = 1, "Adaptation" = 0.5)
-				
+
 				onAscension(mob/owner)
 					owner.Class = "Zeal"
 					..()

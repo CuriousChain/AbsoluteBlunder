@@ -373,7 +373,7 @@ mob/Players/Stat()
 					stat("Energy: ","[(Target.Energy/Target.EnergyMax)*100]%")
 				else
 					stat("Power: ", "Incomprehensible")
-					if(usr.HasClarity() || usr.passive_handler.Get("AdminVision"))
+					if(usr.HasClarity() || usr.passive_handler.Get("AdminVision") || usr.Saga=="UBW" && usr.SagaLevel>=2)
 						stat("Direction - [get_dist(usr, usr.Target)] tiles away","[CheckDirection(usr.Target)]")
 						stat("Health: ","[round(Target.Health)]%")
 
@@ -1183,6 +1183,7 @@ mob/proc/Update_Stat_Labels()
 				if(currentMadness > 0)
 					winshow(src, "Hunger", 1)
 					winset(src, "Hunger", "value=[round(currentMadness/maxMadness*100)]")
+					src<<output("Madness:[round(currentMadness/maxMadness*100)]", "Hunger")
 				else
 					winshow(src,"Hunger", 0)
 	if(isRace(DEMON))
