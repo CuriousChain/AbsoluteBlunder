@@ -373,7 +373,7 @@ mob/Players/Stat()
 					stat("Energy: ","[(Target.Energy/Target.EnergyMax)*100]%")
 				else
 					stat("Power: ", "Incomprehensible")
-					if(usr.HasClarity() || usr.passive_handler.Get("AdminVision") || usr.Saga=="UBW" && usr.SagaLevel>=2)
+					if(usr.HasClarity() || usr.passive_handler.Get("AdminVision") || usr.Saga=="Unlimited Blade Works" && usr.SagaLevel>=2)
 						stat("Direction - [get_dist(usr, usr.Target)] tiles away","[CheckDirection(usr.Target)]")
 						stat("Health: ","[round(Target.Health)]%")
 

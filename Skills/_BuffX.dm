@@ -4470,7 +4470,7 @@ NEW VARIABLES
 							Cooldown = 30-usr.SagaLevel
 							PhysicalHitsLimit = max(1, usr.getAriaCount()/2)
 							SpiritHitsLimit = max(1, usr.getAriaCount()/2)
-							passives["ManaGeneration"] = 4
+							passives["ManaGeneration"] = 10 * usr.SagaLevel
 							passives["PureDamage"] = 10/PhysicalHitsLimit
 					src.Trigger(usr)
 			Reinforce_Self
@@ -6507,7 +6507,7 @@ NEW VARIABLES
 		Sparking_Blast
 			SignatureTechnique=3
 			SpecialSlot=1
-			passives = list("LifeGeneration"=1, "EnergyGeneration" = 5, "ManaGeneration" = 55, "Pursuer" = 3, "PureDamage" = 2, "Instinct" = 2, "Flicker" = 2)
+			passives = list("LifeGeneration"=1, "EnergyGeneration" = 5, "ManaGeneration" = 5, "Pursuer" = 3, "PureDamage" = 2, "Instinct" = 2, "Flicker" = 2)
 			LifeGeneration=5
 			EnergyGeneration=5
 			ManaGeneration=5
@@ -8610,7 +8610,7 @@ NEW VARIABLES
 				src.Trigger(usr)
 		Rinnegan2
 			SBuffNeeded="Sharingan"
-			passives = list("GodKi" = 0.5, "Siphon" = 10)
+			passives = list("GodKi" = 0.5, "Siphon" = 10, "MonkeyKing" = 4)
 			GodKi=0.5
 			Cooldown=-1
 			IconLock='RinneganEyes.dmi'
@@ -8619,7 +8619,7 @@ NEW VARIABLES
 			verb/Rinnegan()
 				set category="Skills"
 				if(!usr.BuffOn(src))
-					passives = list("Siphon" = 10, "GodKi" = 0.5)
+					passives = list("Siphon" = 10, "GodKi" = 0.5, "MonkeyKing" = 4) //Limbo Clones
 				src.Trigger(usr)
 		// Rinnegan
 		// 	SBuffNeeded="Sharingan"

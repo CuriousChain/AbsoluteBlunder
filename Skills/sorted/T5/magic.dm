@@ -1,6 +1,37 @@
 /obj/Skills/Projectile/Magic/Meteor_Swarm
-    ElementalClass="Fire"
-    SkillCost=TIER_5_COST
-    Copyable=6
-    PreRequisite=list("/obj/Skills/Projectile/Magic/Meteor")
+	ElementalClass="Fire"
+	SkillCost=TIER_5_COST
+	Copyable=6
+	PreRequisite=list("/obj/Skills/Projectile/Magic/Meteor")
+	Blasts = 10
+	Distance=50
+	DamageMult=12
+	Dodgeable=-1
+	AccMult = 1.175
+	Speed=2
+	EndRate = 0.5
+	ManaCost=30
+	Cooldown=150
+	IconLock='Boulder Normal.dmi'
+	IconSize=3
+	LockX=-36
+	LockY=-36
+	Variation=0
+	ZoneAttack=1
+	ZoneAttackX=12
+	ZoneAttackY=12
+	Homing=1
+	LosesHoming=100
+	HyperHoming=1
+	FireFromEnemy=1
+	Radius=1
+	Shattering=10
+	Scorching=10
+	Variation=0
+	Explode=2
+	Hover=1
+	ActiveMessage="invokes: <font size=+1>METEORA!</font size>"
+	verb/Meteor_Swarm()
+		set category="Skills"
+		usr.UseProjectile(src)
     // lol, i will never finish this

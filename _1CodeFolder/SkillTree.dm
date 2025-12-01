@@ -137,6 +137,9 @@ var/list/SkillTree=list(
 			"/obj/Skills/Projectile/Counter_Buster"=160
 ),
 
+"BlastT5"=list(
+			"/obj/Skills/Projectile/Cataclysmic_Orb"=200
+),
 "MagicT1"=list(
 			"/obj/Skills/Buffs/SlotlessBuffs/Magic/Reinforce_Object"=40,
 			"/obj/Skills/Buffs/SlotlessBuffs/Magic/Broken_Phantasm"=40,
@@ -193,6 +196,9 @@ var/list/SkillTree=list(
 			"/obj/Skills/AutoHit/Magic/Flare"=160
 ),
 
+"MagicT5"=list(
+			"/obj/Skills/Projectile/Magic/Meteor_Swarm"=200
+),
 "SwordT1"=list(
 			"/obj/Skills/AutoHit/Stinger"=40,
 			"/obj/Skills/AutoHit/Sword_Pressure"=40,
@@ -235,6 +241,10 @@ var/list/SkillTree=list(
 			"/obj/Skills/AutoHit/Jet_Slice"=160,
 			"/obj/Skills/AutoHit/Holy_Justice"=160,
 			"/obj/Skills/AutoHit/Doom_of_Damocles"=160
+),
+
+"SwordT5"=list(
+			"/obj/Skills/AutoHit/Jest_of_the_Dead"=200
 ),
 
 "UnarmedStyles"=list(
