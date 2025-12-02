@@ -7,6 +7,7 @@
 	Blasts=30
 	Charge=1
 	DamageMult=0.8
+	ComboMaster=1
 	Stunner= 3
 	Instinct=1
 	AccMult=2
