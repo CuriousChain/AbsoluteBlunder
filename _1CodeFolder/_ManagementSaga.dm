@@ -921,6 +921,12 @@ mob
 								src.AddSkill(new/obj/Skills/Utility/Burning_Soul)
 						if(5)
 							src.SagaLevel=5
+							if(src.RebirthHeroType=="Blue")
+								src.AddSkill(new/obj/Skills/Buffs/Rebirth/CrownlessKing)
+							if(src.RebirthHeroType=="Red")
+								src.AddSkill(new/obj/Skills/Buffs/Rebirth/ComebackKing)
+							if(src.RebirthHeroType=="Rainbow")
+								src.AddSkill(new/obj/Skills/Buffs/Rebirth/ChaosQueen)
 							if(src.RebirthHeroType=="Cyan")
 								var/list/Choices=list("Roaring Knight", "White Pen of Hope")
 								var/choice

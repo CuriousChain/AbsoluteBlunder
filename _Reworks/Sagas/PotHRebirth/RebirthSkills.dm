@@ -226,7 +226,10 @@ obj/Skills/AutoHit
 				usr<<"You have to be below 25% health to use this!"
 				return
 			usr.Activate(src)
-			src.RebirthLastUse=world.realtime + 24 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 168 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 72 HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 	Snowgrave
 		ElementalClass="Water"
@@ -261,16 +264,21 @@ obj/Skills/AutoHit
 		WindupMessage="casts a spell that nobody can see coming."
 		HahaWhoops=1
 		ActNumber=1
+		Cooldown=-1
 	//	Area="Target"
 		adjust(mob/p)
 			src.DamageMult=rand(1,10)
+			Cooldown=-1
 		verb/Never_See_It_Coming()
 			set category="Skills"
 			set name="Never See It Coming (Act 1)"
-			if(world.realtime < src.RebirthLastUse)
+			if(world.realtime < src.RebirthLastUse&&usr.SagaLevel<5)
 				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
 				return
-			src.RebirthLastUse=world.realtime + 24 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 24 HOURS
+			else if(usr.SagaLevel>=5)
+				src.RebirthLastUse=world.realtime + 1 HOURS
 			adjust(usr)
 			usr.Activate(src)
 			usr.TriggerAwakeningSkill(ActNumber)
@@ -303,7 +311,10 @@ obj/Skills/AutoHit
 				return
 			usr.Activate(src)
 			usr.TriggerAwakeningSkill(ActNumber)
-			src.RebirthLastUse=world.realtime + 72 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 72 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 24 HOURS
 	Unleash
 		ManaCost=75
 		StrOffense=0
@@ -552,6 +563,7 @@ obj/Skills/Queue
 		HitSparkIcon='fevExplosion.dmi'
 		HitSparkX=-32
 		HitSparkY=-32
+		Cooldown=-1
 		verb/NeverKnowsBest()
 			set category="Skills"
 			set name="Never Knows Best (Act 1)"
@@ -563,7 +575,10 @@ obj/Skills/Queue
 				return
 			RandomMult=rand(1,70)
 			DamageMult=RandomMult/10
-			src.RebirthLastUse=world.realtime + 24 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 24 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 1 HOURS
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 	FistOfTheRedStar
@@ -579,6 +594,7 @@ obj/Skills/Queue
 		PushOutIcon='DarkKiai.dmi'
 		PushOutWaves=3
 		PushOut=1
+		Cooldown=01
 		HitSparkIcon='BLANK.dmi'
 		verb/FistOfTheRedStar()
 			set category="Skills"
@@ -589,7 +605,10 @@ obj/Skills/Queue
 			if(usr.Health>50)
 				usr<<"You have to be below 50% health to use this!"
 				return
-			src.RebirthLastUse=world.realtime + 72 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 72 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 24 HOURS
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 
@@ -615,13 +634,16 @@ obj/Skills/Utility
 		verb/NeverTooLate()
 			set category="Skills"
 			set name="Never Too Late (Act 1)"
-			if(world.realtime < src.RebirthLastUse+(600*60*24))
+			if(world.realtime < src.RebirthLastUse)
 				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
 				return
 			if(usr.Health>75)
 				usr<<"You can't use this below 75% health!"
 				return
-			src.RebirthLastUse=world.realtime + 24 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 24 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 1 HOURS
 			RandomMult=rand(1,25)
 			usr.DoDamage(usr, 10)
 			usr.HealHealth(RandomMult)
@@ -640,7 +662,10 @@ obj/Skills/Utility
 			if(usr.Health>50)
 				usr<<"Can't use yet!"
 				return
-			src.RebirthLastUse=world.realtime + 72 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 72 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 24 HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 			usr.buffSelf(/obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience)
 	Burning_Soul
@@ -657,7 +682,10 @@ obj/Skills/Utility
 			if(usr.Health>25)
 				usr<<"Can't use below 25% health!"
 				return
-			src.RebirthLastUse=world.realtime + 168  HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 168 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 72  HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 			usr.buffSelf(/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Burning_Soul)
 	SoulShift
@@ -931,7 +959,10 @@ obj/Skills/Projectile
 				if(usr.Health>25)
 					usr<<"Can't use yet!"
 					return
-				src.RebirthLastUse=world.realtime + 168 HOURS
+				if(usr.SagaLevel<5)
+					src.RebirthLastUse=world.realtime + 168 HOURS
+				else
+					src.RebirthLastUse=world.realtime + 72 HOURS
 				usr.TriggerAwakeningSkill(ActNumber)
 				usr.UseProjectile(src)
 obj/Skills/Buffs
@@ -952,6 +983,37 @@ obj/Skills/Buffs
 					src.Trigger(usr)
 	Rebirth
 		ActiveSlot=1
+		CrownlessKing
+			SpdMult=1.5
+			HealthDrain=0.25
+			HealthThreshold=0.1
+			ActiveMessage="shines brighter than ever before, their legend taking a life of its own. <b>All Hail the Crownless King</b>."
+			OffMessage="casts aside the burden of the Crownless King."
+			passives = list("Godspeed" = 3, "AfterImages" = 2, "ShiningBrightly" = 1)
+			verb/Crownless_King()
+				src.Trigger(usr)
+
+		ComebackKing
+			NeedsHealth=50
+			TooMuchHealth=75
+			EndMult=0.85
+			ActiveMessage="casts aside their durability to call forth a miraculous turnaround. <b>All Hail the Comeback King</b>."
+			OffMessage="casts aside the burden of the Comeback King."
+			passives = list("Unstoppable" = -1, "HellPower"=0.1, "UnderDog"=1, "Rage" = 1)
+			verb/Comeback_King()
+				src.Trigger(usr)
+		ChaosQueen
+			StrMult=1.1
+			EndMult = 1.1
+			ForMult = 1.1
+			SpdMult=1.1
+			OffMult=1.1
+			DefMult=1.1
+			passives = list("Flicker" = 1, "Pursuer"=1, "Instinct"=1, "ChaosQueen" = 1)
+			ActiveMessage="casts aside certainty in the name of possibility, singing the <b>Song of the Chaos Queen!</b>"
+			OffMessage="normalizes their outcomes, putting aside the mantle of the Chaos Queen."
+			verb/Chaos_Queen()
+				src.Trigger(usr)
 		RemoveSOUL
 			MakesSword=1
 			SwordName="SOUL Sword"

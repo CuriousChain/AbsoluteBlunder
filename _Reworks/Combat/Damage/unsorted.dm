@@ -1,5 +1,5 @@
 
-globalTracker/var/list/IGNORE_POWER_CLAMP_PASSIVES = list("Wrathful", "LimitBroken", "Star Surge", "Kaioken")
+globalTracker/var/list/IGNORE_POWER_CLAMP_PASSIVES = list("Wrathful", "LimitBroken", "Star Surge")
 
 
 /mob/proc/ignoresPowerClamp(mob/defender)
@@ -13,6 +13,8 @@ globalTracker/var/list/IGNORE_POWER_CLAMP_PASSIVES = list("Wrathful", "LimitBrok
     for(var/passive in glob.IGNORE_POWER_CLAMP_PASSIVES)
         if(passive_handler|=passive)
             return TRUE
+    if(passive_handler.Get("Kaioken") && Health<=20||passive_handler.Get("Kaioken") && Kaioken>=5)
+        return TRUE
     if(isRace(MAKYO))
         if((StarPowered || passive_handler.Get("HellPower")) && Health <= 10)
             return TRUE

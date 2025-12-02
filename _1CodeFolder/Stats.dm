@@ -711,6 +711,8 @@ mob/proc/
 		else
 			src.KaiokenBP=1
 //EPM modifications
+		if(src.passive_handler.Get("ChaosQueen"))
+			src.PowerControl=rand(101, 300)
 		var/EPM=src.Power_Multiplier
 		if(src.HasMovementMastery())
 			if(src.ActiveBuff && src.ActiveBuff.PowerMult > 1 && (GetPowerUpRatio()<=1))

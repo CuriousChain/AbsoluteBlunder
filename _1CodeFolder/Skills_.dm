@@ -841,13 +841,29 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 				if(passive_handler.Get("Piloting"))
 					return
 				if(src.Kaioken)
-					src << "You douse your Kaioken..."
+					switch(src.Kaioken)
+						if(1)
+							src <<"<b>You're at the minimum Kaioken!</b>"
+						if(2)
+							src.Kaioken=1
+							src <<"<b>You relax your Kaioken to its minimum!</b>"
+						if(3)
+							src.Kaioken=2
+							src <<"<b>You relax your Kaioken to three times!</b>"
+						if(4)
+							src.Kaioken=3
+							src <<"<b>You relax your Kaioken to four times!</b>"
+						if(5)
+							src.Kaioken=4
+							src << "<b>You relax your Kaioken to ten times!</b>"
+					return
+					/*src << "You douse your Kaioken..."
 					src.SpecialBuff.Trigger(src)
 					sleep()
 					if(src.CheckActive("Ki Control"))
 						for(var/obj/Skills/Buffs/ActiveBuffs/Ki_Control/KC in src)
 							src.UseBuff(KC)
-					return
+					return*/
 				if(src.HasPULock()||src.HasGatesPULock())
 					return
 				if(src.PoweringUp)
