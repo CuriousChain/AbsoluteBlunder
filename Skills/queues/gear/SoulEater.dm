@@ -212,8 +212,6 @@ obj
 		Charge=0.33
 		Explode=2
 		IconLock='Comet.dmi'
-		LockX=-158
-		LockY=-169
 		IconSize=0.025
 		IconSizeGrowTo=0.75
 		Variation=0

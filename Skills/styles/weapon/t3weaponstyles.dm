@@ -16,7 +16,7 @@
     Acrobat
         SignatureTechnique = 3
         passives = list("DoubleStrike" = 2.5, "TripleStrike" = 1, "BlurringStrikes" = 1.5, "SweepingStrike" = 1,\
-                        "Deflection", "NeedsSecondSword" = 1, "NeedsThirdSword" = 1,  "Parry" = 2.5, "Iaijutsu" = 2.5, "Disarm" = 3,\
+                        "Deflection" = 1, "NeedsSecondSword" = 1, "NeedsThirdSword" = 1,  "Parry" = 2.5, "Iaijutsu" = 2.5, "Disarm" = 3,\
                         "Unnerve" = 2, "Fury" = 4)
         NeedsSecondSword = 1
         StyleActive="Acrobat"

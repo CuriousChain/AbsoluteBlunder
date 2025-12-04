@@ -1567,7 +1567,7 @@ NEW VARIABLES
 			verb/Super_Saiyan_Perfected()
 				set category="Skills"
 				if(!usr.BuffOn(src))
-					src.NeedsSSJ=min(usr.transActive(),src.Mastery)
+					src.NeedsSSJ=1
 				src.Trigger(usr)
 
 		LegendarySuperSaiyan

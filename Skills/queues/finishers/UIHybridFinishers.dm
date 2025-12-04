@@ -1,12 +1,11 @@
 /obj/Skills/Queue/Finisher
 	Sword_of_Awareness
 		name = "Sword of Awareness"
-		Warp = 3
+		Warp = 4
 		SpeedStrike = 3
 		Decider = 2
 		Instinct = 2
-		Combo = 6
-		InstantStrikes = 4
+		InstantStrikes = 2
 		DamageMult = 1.75
 		KBAdd = 1
 		KBDelayed = 1

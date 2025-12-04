@@ -987,6 +987,7 @@ obj/Skills/Buffs
 			SpdMult=1.5
 			HealthDrain=0.25
 			HealthThreshold=0.1
+			EnergyHeal=1
 			ActiveMessage="shines brighter than ever before, their legend taking a life of its own. <b>All Hail the Crownless King</b>."
 			OffMessage="casts aside the burden of the Crownless King."
 			passives = list("Godspeed" = 3, "AfterImages" = 2, "ShiningBrightly" = 1, "KiControl" = 1)
@@ -997,6 +998,7 @@ obj/Skills/Buffs
 			NeedsHealth=50
 			TooMuchHealth=75
 			EndMult=0.85
+			EnergyHeal=1
 			ActiveMessage="casts aside their durability to call forth a miraculous turnaround. <b>All Hail the Comeback King</b>."
 			OffMessage="casts aside the burden of the Comeback King."
 			passives = list("Unstoppable" = -1, "HellPower"=0.1, "UnderDog"=1, "Rage" = 1, "KiControl" = 1)
@@ -1009,6 +1011,7 @@ obj/Skills/Buffs
 			SpdMult=1.1
 			OffMult=1.1
 			DefMult=1.1
+			EnergyHeal=1
 			passives = list("Flicker" = 1, "Pursuer"=1, "Instinct"=1, "ChaosQueen" = 1, "KiControl" = 1)
 			ActiveMessage="casts aside certainty in the name of possibility, singing the <b>Song of the Chaos Queen!</b>"
 			OffMessage="normalizes their outcomes, putting aside the mantle of the Chaos Queen."
@@ -1052,6 +1055,7 @@ obj/Skills/Buffs
 				StrMult=1.85
 				SpdMult=1.5
 				PowerMult=1.25
+				EnergyHeal=1
 			verb/BlackShard()
 				set category="Skills"
 				adjust(usr)
@@ -1079,6 +1083,7 @@ obj/Skills/Buffs
 				SpdMult=1.5
 				PowerMult=1.25
 				OffMult=0.75
+				EnergyHeal=1
 			verb/BlackShard()
 				set category="Skills"
 				adjust(usr)
@@ -1099,6 +1104,7 @@ obj/Skills/Buffs
 			adjust(mob/p)
 				passives = list("PUSpike"=50,"KiControl" = 1)
 				PowerMult=1.25
+				EnergyHeal=1
 			verb/Devilsknife()
 				set category="Skills"
 				adjust(usr)
@@ -1117,8 +1123,9 @@ obj/Skills/Buffs
 			ActiveMessage="faces fate with the Axe of Justice."
 			OffMessage="puts the Axe of Justice away."
 			adjust(mob/p)
-				passives = list("PUSpike"=50)
+				passives = list("PUSpike"=50,"KiControl" = 1)
 				PowerMult=1.25
+				EnergyHeal=1
 				if(p.passive_handler["FutureRewritten"])
 					passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 1,"KiControl" = 1)
 			verb/JusticeAxe()
@@ -1142,6 +1149,7 @@ obj/Skills/Buffs
 			adjust(mob/p)
 				passives = list("PUSpike"=50, "BlurringStrikes"=3,"KiControl" = 1)
 				PowerMult=1.25
+				EnergyHeal=1
 				if(p.SagaLevel>=3)
 					StrMult=1.5
 					ForMult=1.5
