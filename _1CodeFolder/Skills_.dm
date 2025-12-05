@@ -256,12 +256,12 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 					src.Oxygen+=(src.OxygenMax)*0.25
 					if(src.Oxygen>=(src.OxygenMax)*2)
 						src.Oxygen=(src.OxygenMax)*2
-				else if(src.StanceActive=="Crane")
+				else if(src.StyleActive == "Crane Style")
 					src.OMessage(10,"[src] backflips away from [src.Target]!","<font color=red>[src]([src.key]) used  Back Dash.")
 				else
 					src.OMessage(10,"[src] dashes away from [src.Target]!","<font color=red>[src]([src.key]) used  Back Dash.")
 				while(Distance>0)
-					if(src.StanceActive=="Crane")
+					if(src.StyleActive == "Crane Style")
 						src.icon_state="KB"
 					else if(src.HasRipple())
 						src.icon_state="Pose"
