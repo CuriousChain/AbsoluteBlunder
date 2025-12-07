@@ -268,6 +268,8 @@ transformation
 				user.potential_trans=user.Potential+SaiyanTrans
 				if(user.potential_trans<0)
 					user.potential_trans=0
+			if(usr.transActive==0)
+				usr.transActive=0
 
 			if(priorAngerPoint)
 				user.AngerPoint = priorAngerPoint

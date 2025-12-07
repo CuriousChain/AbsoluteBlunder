@@ -33,7 +33,10 @@
 						enemy.passive_handler.Set("Determination(Purple)", 0)
 						enemy<<"Your SOUL color shifts to green!"
 				if(enemy.passive_handler["Determination"])
-					enemy.HealMana(enemy.SagaLevel / 60, 1)
+					if(enemy.passive_handler["Determination(White)"])
+						enemy.HealMana(enemy.SagaLevel / 30, 1)
+					else
+						enemy.HealMana(enemy.SagaLevel / 60, 1)
 				else
 					enemy.HealMana(enemy.SagaLevel / 15, 1)
 			if(. && enemy.CanAttack())

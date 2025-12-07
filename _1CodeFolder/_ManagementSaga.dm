@@ -945,6 +945,7 @@ mob
 									src.AddSkill(new/obj/Skills/Buffs/Slotless/Rebirth/RefractiveArmor)
 								if(src.FinalHeroChoice=="White Pen of Hope")
 									src.AddSkill(new/obj/Skills/Buffs/NuStyle/SwordStyle/White_Pen_Of_Hope)
+									src.AddSkill(new/obj/Skills/Buffs/Rebirth/White_Pen_of_Hope)
 							if(src.RebirthHeroType=="Purple")
 								src.AddSkill(new/obj/Skills/Buffs/NuStyle/SwordStyle/Justice_Incarnate)
 

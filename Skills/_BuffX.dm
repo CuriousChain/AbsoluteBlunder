@@ -1510,7 +1510,8 @@ NEW VARIABLES
 				if(usr.ExpandBase)
 					IconReplace=1
 					icon=usr.ExpandBase
-				src.NeedsSSJ=usr.transActive
+				if(usr.transActive)
+					src.NeedsSSJ=usr.transActive
 				src.HairLock=usr.Hair_SSJ2
 				src.Trigger(usr)
 		SuperSaiyanGrade3
@@ -1538,7 +1539,8 @@ NEW VARIABLES
 				if(usr.ExpandBase)
 					IconReplace=1
 					icon=usr.ExpandBase
-				src.NeedsSSJ=usr.transActive
+				if(usr.transActive)
+					src.NeedsSSJ=usr.transActive
 				src.HairLock=usr.Hair_SSJ3
 				src.Trigger(usr)
 		SuperSaiyanPerfected

@@ -25,7 +25,7 @@ mob
 			if(glob.progress.SpawnLoc==1)
 				src.loc = locate(430, 310, 12)
 			if(glob.progress.SpawnLoc==2)
-				src.loc = locate(250,250,3)
+				src.loc = locate(250,238,3)
 
 /*
 

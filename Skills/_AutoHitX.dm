@@ -6326,7 +6326,10 @@ obj
 									m.passive_handler.Set("Determination(Purple)", 0)
 									m<<"Your SOUL color shifts to green!"
 							if(m.passive_handler["Determination"])
-								m.HealMana(m.SagaLevel*1.25)
+								if(m.passive_handler["Determination(White)"])
+									m.HealMana(m.SagaLevel*2.5)
+								else
+									m.HealMana(m.SagaLevel*1.25)
 							else
 								m.HealMana(m.SagaLevel*5)
 						if(m.CanAttack())
@@ -6397,7 +6400,10 @@ obj
 					src.Owner.HealMana(src.Owner.SagaLevel)
 				if(src.Owner.SagaLevel>1&src.Owner.Saga=="Path of a Hero: Rebirth")
 					if(src.Owner.passive_handler["Determination"])
-						src.Owner.HealMana(src.Owner.SagaLevel/4)
+						if(src.Owner.passive_handler["Determination(White)"])
+							src.Owner.HealMana(src.Owner.SagaLevel/2)
+						else
+							src.Owner.HealMana(src.Owner.SagaLevel/4)
 					else
 						src.Owner.HealMana(src.Owner.SagaLevel)
 

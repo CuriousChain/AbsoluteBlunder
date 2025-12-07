@@ -5739,7 +5739,10 @@ obj
 													a:passive_handler.Set("Determination(Purple)", 0)
 													a<<"Your SOUL color shifts to green!"
 											if(a:passive_handler["Determination"])
-												a:HealMana(a:SagaLevel / 4)
+												if(a:passive_handler["Determination(White)"])
+													a:HealMana(a:SagaLevel / 2)
+												else
+													a:HealMana(a:SagaLevel / 4)
 											else
 												a:HealMana(a:SagaLevel)
 										return
@@ -5954,7 +5957,10 @@ obj
 									src.Owner.HealMana(src.Owner.SagaLevel/8)
 								if(src.Owner.SagaLevel>1&&src.Owner.Saga=="Path of a Hero: Rebirth")
 									if(src.Owner.passive_handler["Determination"])
-										src.Owner.HealMana(src.Owner.SagaLevel/32)
+										if(src.Owner.passive_handler["Determination(White)"])
+											src.Owner.HealMana(src.Owner.SagaLevel/16)
+										else
+											src.Owner.HealMana(src.Owner.SagaLevel/32)
 									else
 										src.Owner.HealMana(src.Owner.SagaLevel/8)
 							else
@@ -5975,7 +5981,10 @@ obj
 									src.Owner.HealMana(src.Owner.SagaLevel/15)
 								if(src.Owner.SagaLevel>1&&src.Owner.Saga=="Path of a Hero: Rebirth")
 									if(src.Owner.passive_handler["Determination"])
-										src.Owner.HealMana(src.Owner.SagaLevel/60)
+										if(src.Owner.passive_handler["Determination(White)"])
+											src.Owner.HealMana(src.Owner.SagaLevel/30)
+										else
+											src.Owner.HealMana(src.Owner.SagaLevel/60)
 									else
 										src.Owner.HealMana(src.Owner.SagaLevel/15)
 

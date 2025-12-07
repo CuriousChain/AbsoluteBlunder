@@ -873,7 +873,10 @@
 								HealMana(clamp((damage*1.25) * SagaLevel, 0.5, 20), 1)
 							if(SagaLevel>1&&Saga=="Path of a Hero: Rebirth")
 								if(passive_handler["Determination"])
-									HealMana(clamp((damage*0.25) * SagaLevel, 0.5, 20), 1)
+									if(passive_handler["Determination(White)"])
+										HealMana(clamp((damage*0.4) * SagaLevel, 0.5, 20), 1)
+									else
+										HealMana(clamp((damage*0.4) * SagaLevel, 0.5, 20), 1)
 								else
 									HealMana(clamp((damage*1) * SagaLevel, 0.5, 20), 1)
 							if(passive_handler["RenameMana"])

@@ -371,7 +371,10 @@ obj/Skills/AutoHit
 			if(world.realtime < src.RebirthLastUse)
 				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
 				return
-			src.RebirthLastUse=world.realtime + 168 HOURS
+			if(usr.SagaLevel<5)
+				src.RebirthLastUse=world.realtime + 168 HOURS
+			else
+				src.RebirthLastUse=world.realtime + 72 HOURS
 			usr.Activate(src)
 	Burning_Up_Everything
 		StrOffense=0
@@ -1091,6 +1094,33 @@ obj/Skills/Buffs
 				set category="Skills"
 				adjust(usr)
 				src.Trigger(usr)
+		White_Pen_of_Hope
+			MakesSword=1
+			SwordName="White Pen of Hope"
+			SwordIcon='BlackShard.dmi'
+			SwordX=-32
+			SwordY=-32
+			SwordClass="Light"
+			StrMult=1.85
+			SpdMult=1.5
+			PowerMult=1.25
+			Cooldown = 1
+			SwordAscension=6
+			passives = list("HolyMod" = 3,"KiControl" = 1)
+			ActiveMessage="manifests their will to change fate, every determination color melding into one: White!"
+			OffMessage="puts the pen away."
+			adjust(mob/p)
+				passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=3, "KiControl"=1, "SpiritSword" = 0.25)
+				PowerMult=1.25
+				StrMult=1.5
+				ForMult=1.5
+				SpdMult=1.5
+				PowerMult=1.25
+				EnergyHeal=1
+			verb/White_Pen_of_Hope()
+				set category="Skills"
+				adjust(usr)
+				src.Trigger(usr)
 		Devilsknife
 			MakesSword=1
 			SwordName="Devilsknife"
@@ -1195,12 +1225,12 @@ obj/Skills/Grapple
 /obj/Skills/Buffs/NuStyle/SwordStyle //t3 scaled styles
 	The_Roaring_Knight //cyan t5 evil path
 		StyleActive="The Roaring Knight"
-		passives = list("BlurringStrikes"=2, "Secret Knives" = "GodSlayer")
+		passives = list("BlurringStrikes"=2, "Secret Knives" = "GodSlayer", "MagicSword"=1)
 		StyleEnd=1.5
 		StyleStr=1.5
 	White_Pen_Of_Hope //cyan t5 good path
 		StyleActive="The White Pen of Hope"
-		passives = list("ManaGeneration" = 2, "ManaStats"=1, "Determination(White)" = 1)
+		passives = list("ManaGeneration" = 2, "ManaStats"=1, "Determination(White)" = 1,"ManaCapMult"=1, "MagicSword"=1)
 		StyleSpd=1.5
 		StyleStr=1.25
 		StyleFor=1.25
@@ -1209,4 +1239,4 @@ obj/Skills/Grapple
 		StyleStr=1.25
 		StyleFor=1.25
 		StyleEnd=1.5
-		passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1)
+		passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1)
