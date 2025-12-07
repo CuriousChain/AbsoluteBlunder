@@ -537,6 +537,8 @@ mob
 						OMsg(src, "<font color='[rgb(104, 153, 251)]'>[src]'s dispenser deploys a healing mist!!</font color>")
 					src.Stabilized+=100
 		AddShearing(var/Value, var/mob/Attacker=null)
+			if(src.HasShearImmunity())
+				return
 			if(src.Stasis)
 				return
 			Value = Value*(1-(src.Sheared/glob.DEBUFF_STACK_RESISTANCE))
