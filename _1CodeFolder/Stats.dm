@@ -673,6 +673,18 @@ mob/proc/Recover(var/blah,Amount=1)
 mob/proc/
 	Available_Power()
 //Kaiokek
+		if(src.passive_handler.Get("DoubleHelix"))
+			switch(src.DoubleHelix)
+				if(0)
+					src.PowerControl=100
+				if(1)
+					src.PowerControl=200
+				if(2)
+					src.PowerControl=300
+				if(3)
+					src.PowerControl=400
+				if(4)
+					src.PowerControl=500
 		if(src.passive_handler.Get("Kaioken"))
 			if(src.passive_handler.Get("Super Kaioken"))
 				switch(src.Kaioken)

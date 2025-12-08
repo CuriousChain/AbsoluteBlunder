@@ -18,6 +18,10 @@
 		OffMessage="releases their tremendous focus..."
 		verb/Activate_High_Tension()
 			set category="Skills"
+			if(usr.transActive)
+				usr<<"You can't use this while transformed!"
+				return
 			if(!usr.BuffOn(src))
+				usr.Tension=0
 				usr.race.transformations[1].transform(usr, TRUE)
 			src.Trigger(User=usr, Override=TRUE)

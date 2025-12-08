@@ -981,10 +981,10 @@
 				if(P.Health<=TurfDamage)
 					Destroy(P)
 			return
-		if(src.HasSpecialStrike()||EquippedStaff()||src.passive_handler["Determination(Yellow)"])
+		if(src.HasSpecialStrike()||EquippedStaff()||src.passive_handler["Determination(Yellow)"]||src.passive_handler["Determination(White)"])
 			flick("Attack",src)
 			NextAttack=world.time
-			if(src.passive_handler["Determination(Yellow)"])
+			if(src.passive_handler["Determination(Yellow)"]||src.passive_handler["Determination(White)"])
 				if(SagaLevel<4)
 					GetAndUseSkill(/obj/Skills/Projectile/SmallLemonThing, Projectiles, TRUE)
 				if(SagaLevel>=4)

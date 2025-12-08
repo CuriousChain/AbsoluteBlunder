@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 30
+	var/UPDATE_VERSION = 32
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -558,6 +558,10 @@ update
 				o.AngerMax=2.05
 			if(o.isRace(BEASTMAN) && o.Class=="Undying Rage" && o.AscensionsAcquired == 3 && o.AngerMax<2.5)
 				o.AngerMax=2.5
+			for(var/transformation/KMS in o.race.transformations)
+				o.Revert()
+				KMS.is_active=FALSE
+				o<<"Grats! You can transform as usual again! I have no idea what caused this fucking bug!!!!"
 
 
 

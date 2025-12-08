@@ -238,6 +238,7 @@
 // END_PREFERENCES
 // BEGIN_INCLUDE
 #include "auxtools.dm"
+#include "IconProcs.dm"
 #include "OldMapTilesBecauseIAmGayAndDesperate.dm"
 #include "skintest.dmf"
 #include "_1CodeFolder\.GridStat.dm"

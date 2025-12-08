@@ -755,13 +755,13 @@ mob
 				return 1
 			if(src.isRace(BEASTMAN) && race?:Racial == "Heart of The Beastman" && src.VaizardHealth>0)
 				return 1
-			if(passive_handler.Get("Determination(Green)"))
+			if(passive_handler.Get("Determination(Green)")||passive_handler.Get("Determination(White)"))
 				return 1
 			return 0
 		GetDeathField()
 			var/HeartVal=0
 			var/GreenVal=0
-			if(passive_handler.Get("Determination(Green)"))
+			if(passive_handler.Get("Determination(Green)")||passive_handler.Get("Determination(White)"))
 				GreenVal=round(ManaAmount/20,1)
 			if(src.isRace(BEASTMAN) && race?:Racial == "Heart of The Beastman" && src.VaizardHealth>0)
 				HeartVal += 5
@@ -825,6 +825,8 @@ mob
 				return 1
 			if(src.CheckSpecial("Kaioken"))
 				return 1
+			if(passive_handler.Get("DoubleHelix"))
+				return 1
 			if(src.HasHealthPU())
 				if(src.PowerControl>100)
 					return 1
@@ -837,6 +839,8 @@ mob
 				for(var/obj/Skills/Buffs/SpecialBuffs/Kaioken/kk in src.Buffs)
 					kkmast=kk.Mastery
 				Return+=src.Kaioken/kkmast
+			if(src.DoubleHelix)
+				Return+=src.DoubleHelix
 			if(src.HasHealthPU())
 				if(src.PowerControl>100)
 					Return*=(src.PowerControl/100)
@@ -861,6 +865,8 @@ mob
 			if(src.transActive()&&!src.HasMystic())
 				if(race.transformations[transActive].mastery>10&&race.transformations[transActive].mastery<75)
 					return 1
+			if(passive_handler.Get("DoubleHelix"))
+				return 1
 			return 0
 		GetEnergyLeak()
 			var/Total=0
@@ -869,6 +875,11 @@ mob
 			if(src.transActive()&&!src.HasMystic())
 				if(race.transformations[transActive].mastery>10&&race.transformations[transActive].mastery<75)
 					Total+=src.transActive()*0.25
+			if(src.DoubleHelix)
+				if(src.DoubleHelix==1)
+					Total+=0.25
+				if(src.DoubleHelix>=2)
+					Total+=src.DoubleHelix*0.5
 			if(passive_handler.Get("Pride"))
 				PrideDrain=(100-Health)*0.01
 				if(PrideDrain>1)
@@ -886,6 +897,8 @@ mob
 				return 1
 			if(src.GatesActive && src.GatesActive < 8)
 				return 1
+			if(passive_handler.Get("DoubleHelix"))
+				return 1
 			return 0
 		GetFatigueLeak()
 			var/Total=0
@@ -894,6 +907,11 @@ mob
 				Total -= 0.5 * AscensionsAcquired
 			if(src.GatesActive && src.GatesActive < 8)
 				return Total +(4/src.SagaLevel)
+			if(src.DoubleHelix)
+				if(src.DoubleHelix==1)
+					Total+=0.25
+				if(src.DoubleHelix>=2)
+					Total+=src.DoubleHelix*0.5
 			return Total
 		HasSoftStyle()
 			if(passive_handler.Get("SoftStyle"))
@@ -1044,7 +1062,7 @@ mob
 			var/Return=0
 			Return += passive_handler.Get("PureReduction")
 			Return += passive_handler.Get("Mythical") * glob.MYTHICALPUREREDMULT
-			if(passive_handler["Determination(Green)"])
+			if(passive_handler["Determination(Green)"]||passive_handler.Get("Determination(White)"))
 				if(SagaLevel<4)
 					Return+=(ManaAmount/50)
 				else if(SagaLevel>=4)
@@ -1249,12 +1267,12 @@ mob
 				Return += 1
 			return Return
 		HasDebuffResistance()
-			if(passive_handler.Get("DebuffResistance")||passive_handler.Get("Determination(Green"))
+			if(passive_handler.Get("DebuffResistance")||passive_handler.Get("Determination(Green")||passive_handler.Get("Determination(White)"))
 				return 1
 			return 0
 		GetDebuffResistance()
 			var/GreenVal=0
-			if(passive_handler.Get("Determination(Green"))
+			if(passive_handler.Get("Determination(Green")||passive_handler.Get("Determination(White)"))
 				GreenVal=round(ManaAmount/20,1)
 			return passive_handler.Get("DebuffResistance") + GreenVal
 		HasVenomImmune()

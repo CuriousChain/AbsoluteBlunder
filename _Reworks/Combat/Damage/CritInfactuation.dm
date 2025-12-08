@@ -8,7 +8,7 @@
 	var/critDMG = passive_handler.Get("CriticalDamage")
 	var/blockChance = 0
 	var/critBlock = 0
-	if(passive_handler["Determination(Red)"])
+	if(passive_handler["Determination(Red)"]||passive_handler["Determination(White)"])
 		critChance+=(ManaAmount/4)
 	if(defender)
 		blockChance = defender.passive_handler.Get("BlockChance")
@@ -42,7 +42,7 @@
 				var/obj/Skills/s = findOrAddSkill(/obj/Skills/AutoHit/HellfireRain)
 				s.adjust(src)
 				Activate(s)
-		if(passive_handler["Determination(Red)"] && ManaAmount>=75)
+		if(passive_handler["Determination(Red)"] && ManaAmount>=75||passive_handler["Determination(White)"] && ManaAmount>=75)
 			if(SagaLevel<4||RebirthHeroType=="Red")
 				critDMG+= ManaAmount/100
 				if(SagaLevel==3)

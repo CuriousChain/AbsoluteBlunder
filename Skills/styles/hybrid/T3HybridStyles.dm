@@ -55,3 +55,34 @@
 			set hidden=1
 			adjust(usr)
 			Trigger(usr)
+	Tsui_no_Hiken_Kaguzuchi // mystic+armed, but on fire
+		SignatureTechnique=3
+		passives = list("HybridStyle" = "MysticStyle",  "CriticalChance" = 10, "CriticalDamage"= 0.05, "SpiritSword" = 0.5, "DemonicInfusion" = 1, "Combustion" = 60, "Scorching" = 8,\
+						"Heavy Strike" = "Inferno", "Instinct" = 1, "Persistence" = 1, "BurnHit" = 0.5, "SpiritFlow"=2)
+		// crits deal an extra amount based on the enemy's max health
+		StyleStr = 1.65
+		StyleFor = 1.65
+		StyleOff = 1.15
+		StyleEnd = 0.75
+		StyleDef = 0.85
+		ElementalOffense = "HellFire"
+		ElementalDefense = "Fire"
+		ElementalClass = "Fire"
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Aura/Fire"
+		StyleActive="Tsui no Hiken: Kaguzuchi"
+		Finisher="/obj/Skills/Queue/Finisher/Deal_with_the_Devil"
+		var/obj/Skills/demonSkill = FALSE
+		adjust(mob/p)
+			passives = list("HybridStyle" = "MysticStyle",  "CriticalChance" = 15, "CriticalDamage"= 0.15, "SpiritSword" = 0.5, "DemonicInfusion" = 1, "Combustion" = 60, "Scorching" = 8,\
+						"Heavy Strike" = "Inferno", "Instinct" = 1, "Persistence" = 1, "BurnHit" = 0.5, "SpiritFlow"=2)
+		Trigger(mob/User, Override)
+			if(!demonSkill)
+				var/inp = input(User, "What demon skill do you want?") in list("/obj/Skills/Buffs/SlotlessBuffs/Magic/HellFire/Hellstorm", "/obj/Skills/Projectile/Magic/HellFire/Hellpyre", "/obj/Skills/Buffs/SlotlessBuffs/Magic/HellFire/OverHeat")
+				BuffTechniques = list(inp)
+				demonSkill = inp
+			sleep(2)
+			..()
+
+		verb/Tsui_no_Hiken_Kaguzuchi()
+			set hidden=1
+			Trigger(usr)

@@ -194,8 +194,10 @@ transformation
 			var/SaiyanTrans=0
 			if(user.isRace(SAIYAN)||user.isRace(HALFSAIYAN))
 				SaiyanTrans=unlock_potential-user.Potential
-				if(SaiyanTrans<3*user.transActive)
+				if(SaiyanTrans<3*user.transActive&&user.isRace(HALFSAIYAN))
 					SaiyanTrans=3*user.transActive
+				if(SaiyanTrans<5*user.transActive&&user.isRace(SAIYAN))
+					SaiyanTrans=5*user.transActive
 				user.potential_trans=user.Potential+SaiyanTrans
 			if(form_base)
 				stored_base = user.icon
@@ -263,19 +265,19 @@ transformation
 			var/SaiyanTrans=0
 			if(user.isRace(SAIYAN)||user.isRace(HALFSAIYAN))
 				SaiyanTrans=unlock_potential-user.Potential
-				if(SaiyanTrans<3*user.transActive)
+				if(SaiyanTrans<3*user.transActive&&user.isRace(HALFSAIYAN))
 					SaiyanTrans=3*user.transActive
+				if(SaiyanTrans<5*user.transActive&&user.isRace(SAIYAN))
+					SaiyanTrans=5*user.transActive
 				user.potential_trans=user.Potential+SaiyanTrans
 				if(user.potential_trans<0)
 					user.potential_trans=0
-			if(usr.transActive==0)
-				usr.transActive=0
-
 			if(priorAngerPoint)
 				user.AngerPoint = priorAngerPoint
 				priorAngerPoint = null
 
 			user.PUSpeedModifier /= PUSpeedModifier
+			user.DoubleHelix=0
 
 			if(autoAnger)
 				user.passive_handler.Decrease("EndlessAnger")

@@ -106,9 +106,9 @@ mob
 			// 	src.WoundSelf(defender.GetDeathField()*0.01*min((1/val),1))
 			// if(defender.HasVoidField()&&SpiritAttack)
 			// 	src.GainFatigue(defender.GetVoidField()*0.01*min((1/val),1))
-			if(defender.passive_handler["Determination(Purple)"])
+			if(defender.passive_handler["Determination(Purple)"||defender.passive_handler["Determination(White)"]])
 				defender.HealMana(defender.SagaLevel / 60, 1)
-				if(defender.ManaAmount>=100 && defender.RebirthHeroType=="Cyan")
+				if(defender.ManaAmount>=100 && defender.RebirthHeroType=="Cyan"&&!defender.passive_handler["Determination(White)"])
 					defender.passive_handler.Set("Determination(Green)", 1)
 					defender.passive_handler.Set("Determination(Purple)", 0)
 					defender<<"Your SOUL color shifts to green!"
@@ -1594,7 +1594,7 @@ mob
 				Mod+=passive_handler.Get("TensionPowered")/2
 			if(passive_handler.Get("TensionPowered")&&transActive>=4)
 				Mod+=passive_handler.Get("TensionPowered")/2
-			if(passive_handler.Get("Determination(Green)"))
+			if(passive_handler.Get("Determination(Green)")||passive_handler.Get("Determination(White)"))
 				Mod+=(0.02*ManaAmount)
 
 			End*=Mod
@@ -1650,8 +1650,8 @@ mob
 				Mod+=1
 			if(Saga&&src.Saga=="Eight Gates")
 				Mod+=0.01*GatesActive
-			if(passive_handler["Determination(Red)"||passive_handler["Determination(Yellow)"]])
-				Mod+=(0.05*ManaAmount)
+			if(passive_handler["Determination(Red)"||passive_handler["Determination(Yellow)"]]||passive_handler.Get("Determination(White)"))
+				Mod+=(0.025*ManaAmount)
 			if(Secret == "Heavenly Restriction")
 				if(secretDatum?:hasImprovement("Speed"))
 					Mod += round(clamp(1 + secretDatum?:getBoon(src, "Speed") / 8, 1, 8), 0.1)

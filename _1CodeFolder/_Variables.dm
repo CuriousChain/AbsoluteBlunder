@@ -228,6 +228,8 @@ mob/var
 	Kaioken//Level of kaioken.
 	KaiokenBP=1//Level of Kaioken intimidate.
 
+	DoubleHelix//Kaioken but for humans
+
 	DeathKilled=0//You get one.
 	DeathKillerTargets//used for deathkiller
 	NoSoul//Immediately delete the character when they are truly dead

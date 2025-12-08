@@ -66,8 +66,8 @@
 		SpeedStrike = 4
 		Decider = 3
 		Instinct = 3
-		Combo = 7
-		InstantStrikes = 5
+		Combo = 3
+		InstantStrikes = 3
 		DamageMult = 2.5
 		KBAdd = 2
 		Shining = 2
@@ -85,7 +85,7 @@
 		SweepStrike = 3
 		InstantStrikes = 4
 		Crushing = 30
-		DamageMult = 5.25
+		DamageMult =4
 		GrabTrigger = "/obj/Skills/Grapple/Instinct_Reversal"
 		BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Flow_State"
 		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Thrown_Off_Balance"
@@ -95,7 +95,7 @@
 		name = "Prismatic Samsara"
 		Warp = 5
 		Combo = 7
-		InstantStrikes = 4
+		InstantStrikes = 2
 		DamageMult = 2.4
 		Instinct = 3
 		Shining = 3

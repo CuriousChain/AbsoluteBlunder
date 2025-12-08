@@ -221,12 +221,20 @@ obj/Skills/Utility/Recall_Armaments
 		SignatureTechnique=3
 		NoSword=1
 		StyleActive="Ultra Instinct (Complete)"
+		adjust(mob/p)
+			passives = list("Flow" = 2, "Deflection" = 1, "SoftStyle" = 1, "Flow" = 3, "Instinct" = 3, "CounterMaster" = 3, "Godspeed" = 1, "BlurringStrikes"=4)
+			StyleStr=1.35
+			StyleFor=1.35
+			StyleSpd=1.75
+			StyleOff=1.75
+			StyleDef=1.75
 		verb/Ultra_Instinct()
 			set hidden=1
+			adjust(usr)
 			src.Trigger(usr)
 	Perfected_Ultra_Instinct //I hope this is as gorked as I intend it on being.
 		Copyable=0
-		passives = list("Deflection" = 1, "SoftStyle" = 1, "LikeWater" = 4, "Flow" = 4, "Instinct" = 4, "CounterMaster" = 5, "Godspeed" = 1,"UnarmedDamage"=5)
+		passives = list("Deflection" = 1, "SoftStyle" = 1, "LikeWater" = 4, "Flow" = 4, "Instinct" = 4, "CounterMaster" = 5, "Godspeed" = 1)
 		NeedsSword=0
 		NeedsStaff=0
 		NoSword=0
@@ -245,6 +253,14 @@ obj/Skills/Utility/Recall_Armaments
 		SignatureTechnique=4
 		NoSword=1
 		StyleActive="Perfected Ultra Instinct"
+		adjust(mob/p)
+			passives = list("Deflection" = 1, "SoftStyle" = 1, "LikeWater" = 4, "Flow" = 4, "Instinct" = 4, "CounterMaster" = 5, "Godspeed" = 1, "BlurringStrikes"=4)
+			StyleStr=1.45
+			StyleFor=1.45
+			StyleSpd=2
+			StyleOff=2
+			StyleDef=2
 		verb/Perfected_Ultra_Instinct()
 			set hidden=1
+			adjust(usr)
 			src.Trigger(usr)

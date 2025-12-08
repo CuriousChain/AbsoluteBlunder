@@ -858,6 +858,8 @@ obj
 					var/maxTension = 100
 					if(usr.passive_handler.Get("Conductor"))
 						maxTension = max(glob.MIN_TENSION, 100 - usr.passive_handler.Get("Conductor"))
+					if(usr.passive_handler.Get("SuperHighTension"))
+						maxTension = max(glob.MIN_TENSION, 100 - (15*usr.passive_handler.Get("SuperHighTension")))
 					if(usr.Tension>=maxTension)
 						if(usr.HasTensionLock())
 							return

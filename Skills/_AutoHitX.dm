@@ -6319,17 +6319,14 @@ obj
 						if(m.UsingAnsatsuken())
 							m.HealMana(m.SagaLevel*5)
 						if(m.SagaLevel>1&&m.Saga=="Path of a Hero: Rebirth")
-							if(m.passive_handler["Determination(Purple)"])
+							if(m.passive_handler["Determination(Purple)"]||m.passive_handler["Determination(White)"])
 								m.HealMana(m.SagaLevel*3, 1)
-								if(m.ManaAmount>=100 && m.RebirthHeroType=="Cyan")
+								if(m.ManaAmount>=100 && m.RebirthHeroType=="Cyan"||!m.passive_handler["Determination(White)"])
 									m.passive_handler.Set("Determination(Green)", 1)
 									m.passive_handler.Set("Determination(Purple)", 0)
 									m<<"Your SOUL color shifts to green!"
 							if(m.passive_handler["Determination"])
-								if(m.passive_handler["Determination(White)"])
-									m.HealMana(m.SagaLevel*2.5)
-								else
-									m.HealMana(m.SagaLevel*1.25)
+								m.HealMana(m.SagaLevel*1.25)
 							else
 								m.HealMana(m.SagaLevel*5)
 						if(m.CanAttack())
@@ -6400,10 +6397,7 @@ obj
 					src.Owner.HealMana(src.Owner.SagaLevel)
 				if(src.Owner.SagaLevel>1&src.Owner.Saga=="Path of a Hero: Rebirth")
 					if(src.Owner.passive_handler["Determination"])
-						if(src.Owner.passive_handler["Determination(White)"])
-							src.Owner.HealMana(src.Owner.SagaLevel/2)
-						else
-							src.Owner.HealMana(src.Owner.SagaLevel/4)
+						src.Owner.HealMana(src.Owner.SagaLevel/4)
 					else
 						src.Owner.HealMana(src.Owner.SagaLevel)
 

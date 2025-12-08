@@ -351,6 +351,7 @@ obj/Skills/AutoHit
 		ElementalClass="Water"
 		SagaSignature=1
 		SignatureTechnique=2
+		Cooldown=9000
 		SignatureName="Banish"
 		Area="Target"
 		Distance=15
@@ -1062,6 +1063,7 @@ obj/Skills/Buffs
 				SpdMult=1.5
 				PowerMult=1.25
 				EnergyHeal=1
+				SwordUnbreakable=1
 			verb/BlackKnife()
 				set category="Skills"
 				adjust(usr)
@@ -1090,6 +1092,7 @@ obj/Skills/Buffs
 				PowerMult=1.25
 				OffMult=0.75
 				EnergyHeal=1
+				SwordUnbreakable=1
 			verb/BlackShard()
 				set category="Skills"
 				adjust(usr)
@@ -1097,7 +1100,7 @@ obj/Skills/Buffs
 		White_Pen_of_Hope
 			MakesSword=1
 			SwordName="White Pen of Hope"
-			SwordIcon='BlackShard.dmi'
+			SwordIcon='KATANA SILVER.dmi'
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Light"
@@ -1117,6 +1120,7 @@ obj/Skills/Buffs
 				SpdMult=1.5
 				PowerMult=1.25
 				EnergyHeal=1
+				SwordUnbreakable=1
 			verb/White_Pen_of_Hope()
 				set category="Skills"
 				adjust(usr)
@@ -1159,6 +1163,7 @@ obj/Skills/Buffs
 				passives = list("PUSpike"=50,"KiControl" = 1)
 				PowerMult=1.25
 				EnergyHeal=1
+				SwordUnbreakable=1
 				if(p.passive_handler["FutureRewritten"])
 					passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 1,"KiControl" = 1)
 			verb/JusticeAxe()
@@ -1228,15 +1233,27 @@ obj/Skills/Grapple
 		passives = list("BlurringStrikes"=2, "Secret Knives" = "GodSlayer", "MagicSword"=1)
 		StyleEnd=1.5
 		StyleStr=1.5
+		verb/The_Roaring_Knight()
+			set hidden=1
+			adjust(usr)
+			Trigger(usr)
 	White_Pen_Of_Hope //cyan t5 good path
 		StyleActive="The White Pen of Hope"
 		passives = list("ManaGeneration" = 2, "ManaStats"=1, "Determination(White)" = 1,"ManaCapMult"=1, "MagicSword"=1)
 		StyleSpd=1.5
 		StyleStr=1.25
 		StyleFor=1.25
+		verb/Pen_Of_Hope()
+			set hidden=1
+			adjust(usr)
+			Trigger(usr)
 	Justice_Incarnate
 		StyleActive="Justice Incarnate"
 		StyleStr=1.25
 		StyleFor=1.25
 		StyleEnd=1.5
 		passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1)
+		verb/Justice_Incarnate()
+			set hidden=1
+			adjust(usr)
+			Trigger(usr)

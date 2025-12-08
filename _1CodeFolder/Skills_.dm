@@ -811,12 +811,42 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 						src << "You don't have enough mastery of Kaioken to push it further."
 					return
 				if(src.CheckActive("Ki Control")||(src.CheckSpecial("One Hundred Percent Power")&&src.transUnlocked<4)||(src.CheckSpecial("Fifth Form")&&src.transUnlocked<4))
+					if(src.passive_handler.Get("DoubleHelix"))
+						switch(src.DoubleHelix)
+							if(0)
+								src.DoubleHelix=1
+								OMsg(src,"<b>The dreams of those who have fallen...</b>")
+							if(1)
+								src.DoubleHelix=2
+								OMsg(src,"<b>...and the hopes of those who will follow...</b>")
+							if(2)
+								src.DoubleHelix=3
+								OMsg(src,"<b>...those two sets of dreams weave together...</b>")
+							if(3)
+								src.DoubleHelix=4
+								OMsg(src,"<b>...into a double helix, paving a path towards tomorrow!!!</b>")
+							if(4)
+								if(src.transUnlocked<5)
+									return
+								src.DoubleHelix=5
+								OMsg(src,"<b>In their hands, [src] holds the power to create the heavens!!!!</b>")
+					if(src.transActive()<src.transUnlocked)
+						if(src.isRace(HUMAN)&&src.transActive<3||src.isRace(CELESTIAL)&&src.transActive<3)
+							return
+						if(src.isRace(HUMAN)&&src.transActive==3&&src.transUnlocked>=4||src.isRace(CELESTIAL)&&src.transActive==3&&src.transUnlocked>=4)
+							src.race.transformations[4].transform(src, TRUE)
+							src.DoubleHelix=0
+							return
+						src.Transform()
 					return
 				if(src.HasPULock()||src.HasGatesPULock())
 					return
 				if(src.PoweringUp==1)
 					if(src.transActive()<src.transUnlocked)
 						if(src.isRace(HUMAN)&&src.transActive<3||src.isRace(CELESTIAL)&&src.transActive<3)
+							return
+						if(src.isRace(HUMAN)&&src.transActive==3&&src.transUnlocked>=4||src.isRace(CELESTIAL)&&src.transActive==3&&src.transUnlocked>=4)
+							usr.race.transformations[4].transform(usr, TRUE)
 							return
 						src.PoweringUp=0
 						src.Transform()
@@ -871,6 +901,14 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 						for(var/obj/Skills/Buffs/ActiveBuffs/Ki_Control/KC in src)
 							src.UseBuff(KC)
 					return*/
+				if(src.DoubleHelix)
+					src.Revert()
+					src.Revert()
+					src.Revert()
+					src.Revert()
+					src.DoubleHelix=0
+					OMsg(src,"<b>[src] is no longer overflowing with their limit-broken power.</b>")
+					return
 				if(src.HasPULock()||src.HasGatesPULock())
 					return
 				if(src.PoweringUp)

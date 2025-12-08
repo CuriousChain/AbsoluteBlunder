@@ -5732,17 +5732,14 @@ obj
 										if(a:UsingAnsatsuken())
 											a:HealMana(a:SagaLevel)
 										if(a:SagaLevel>1&&a:Saga=="Path of a Hero: Rebirth")
-											if(a:passive_handler["Determination(Purple)"])
+											if(a:passive_handler["Determination(Purple)"]||a:passive_handler["Determination(White)"])
 												a:HealMana(a:SagaLevel / 2, 1)
-												if(a:ManaAmount>=100 && a:RebirthHeroType=="Cyan")
+												if(a:ManaAmount>=100 && a:RebirthHeroType=="Cyan"&&!a:passive_handler["Determination(White)"])
 													a:passive_handler.Set("Determination(Green)", 1)
 													a:passive_handler.Set("Determination(Purple)", 0)
 													a<<"Your SOUL color shifts to green!"
 											if(a:passive_handler["Determination"])
-												if(a:passive_handler["Determination(White)"])
-													a:HealMana(a:SagaLevel / 2)
-												else
-													a:HealMana(a:SagaLevel / 4)
+												a:HealMana(a:SagaLevel / 4)
 											else
 												a:HealMana(a:SagaLevel)
 										return
@@ -5957,10 +5954,7 @@ obj
 									src.Owner.HealMana(src.Owner.SagaLevel/8)
 								if(src.Owner.SagaLevel>1&&src.Owner.Saga=="Path of a Hero: Rebirth")
 									if(src.Owner.passive_handler["Determination"])
-										if(src.Owner.passive_handler["Determination(White)"])
-											src.Owner.HealMana(src.Owner.SagaLevel/16)
-										else
-											src.Owner.HealMana(src.Owner.SagaLevel/32)
+										src.Owner.HealMana(src.Owner.SagaLevel/32)
 									else
 										src.Owner.HealMana(src.Owner.SagaLevel/8)
 							else
@@ -5981,10 +5975,7 @@ obj
 									src.Owner.HealMana(src.Owner.SagaLevel/15)
 								if(src.Owner.SagaLevel>1&&src.Owner.Saga=="Path of a Hero: Rebirth")
 									if(src.Owner.passive_handler["Determination"])
-										if(src.Owner.passive_handler["Determination(White)"])
-											src.Owner.HealMana(src.Owner.SagaLevel/30)
-										else
-											src.Owner.HealMana(src.Owner.SagaLevel/60)
+										src.Owner.HealMana(src.Owner.SagaLevel/60)
 									else
 										src.Owner.HealMana(src.Owner.SagaLevel/15)
 
